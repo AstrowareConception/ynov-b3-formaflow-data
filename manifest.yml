@@ -1,0 +1,57 @@
+repository:
+  name: ynov-b3-formaflow-data
+  version: 0.1.0
+  status: specification
+  academic_year: 2026-2027
+  module: Conception et architecture des données
+  duration_hours: 14
+  ffp_hours: 7
+  tdp_hours: 7
+
+reference:
+  source_repository: ynov-b3-formaflow-reference
+  source_version: 0.1.0
+  local_path: inputs/formaflow-reference
+  mode: copied_snapshot
+
+runtime:
+  relational_target: PostgreSQL
+  orchestration: Docker Compose
+  nosql_profiles:
+    - mongodb
+    - redis
+    - cassandra
+    - neo4j
+  external_services_required: false
+  data_policy: synthetic_only
+
+commands:
+  - setup
+  - start
+  - stop
+  - reset-data
+  - seed
+  - smoke
+  - test
+  - benchmark
+  - nosql
+  - quality
+
+tags:
+  - course-start
+  - checkpoint-relational
+  - checkpoint-nosql
+  - reference-final
+
+assessment:
+  repository_submission: false
+  formative_productions: true
+  summative_mode: individual_contextualized_qcm
+  duration_minutes: 45
+  weight_percent: 100
+
+handoff:
+  target_repository: ynov-b3-formaflow-hexagonal
+  local_path: handoff/data-reference
+  consumer_path: inputs/data-reference
+
