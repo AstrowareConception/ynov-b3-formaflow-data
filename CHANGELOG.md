@@ -8,5 +8,5 @@
 - formalisation des commandes, branches, tags et checkpoints ;
 - structuration des fixtures, productions, preuves et benchmarks ;
 - définition du paquet `handoff/data-reference/` transmis au module DDD ;
+- fixation du tag source `reference-v0.1.0` et ajout des emplacements de spécification annoncés dans l'arborescence ;
 - séparation de l'unique QCM et des productions formatives.
-

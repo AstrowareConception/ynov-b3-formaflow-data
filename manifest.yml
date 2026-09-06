@@ -11,6 +11,7 @@ repository:
 reference:
   source_repository: ynov-b3-formaflow-reference
   source_version: 0.1.0
+  source_tag: reference-v0.1.0
   local_path: inputs/formaflow-reference
   mode: copied_snapshot
 
@@ -38,10 +39,12 @@ commands:
   - quality
 
 tags:
-  - course-start
-  - checkpoint-relational
-  - checkpoint-nosql
-  - reference-final
+  formative:
+    - course-start
+    - checkpoint-relational
+    - checkpoint-nosql
+  canonical:
+    - reference-final
 
 assessment:
   repository_submission: false
@@ -54,4 +57,3 @@ handoff:
   target_repository: ynov-b3-formaflow-hexagonal
   local_path: handoff/data-reference
   consumer_path: inputs/data-reference
-

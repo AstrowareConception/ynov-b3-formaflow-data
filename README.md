@@ -52,6 +52,7 @@ ynov-b3-formaflow-data/
 ├── README.md
 ├── CHANGELOG.md
 ├── manifest.yml
+├── CHECKPOINTS.md
 ├── Makefile
 ├── compose.yml
 ├── .env.example
@@ -153,7 +154,6 @@ Le module Architecture hexagonale & DDD copie ce paquet dans `inputs/data-refere
 
 Toutes les données sont fictives. Aucun dump réel, secret, compte distant ou service cloud n'est nécessaire. Les scripts de génération doivent être déterministes, documenter leur volumétrie et rester compatibles avec les ressources des postes étudiants.
 
-## État de cette V1
+## État de la version 0.1.0
 
 Cette version fixe le contrat du repository. Restent à produire lors de la spécification détaillée : `compose.yml`, `Makefile`, datasets, briefs, schéma volontairement fragile, tests SQL, protocoles de benchmark, gabarits de modèles, checkpoints réels, handoff complet et kit formateur.
-
