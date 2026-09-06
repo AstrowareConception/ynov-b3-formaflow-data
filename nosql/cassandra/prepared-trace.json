@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "profile": "large-trace",
+  "representedEvents": 1000000,
+  "executed": false,
+  "partitionModel": "training_id + calendar month",
+  "seed": 20260906,
+  "logicalDate": "2027-01-20T12:00:00Z",
+  "checksToPerform": ["partition byte size", "cell count", "tombstones", "p95 per target query"],
+  "reason": "Prepared for discussion without requiring a million-row Cassandra load on classroom laptops.",
+  "limitations": "No latency, compaction behavior or partition-size measurement is claimed."
+}

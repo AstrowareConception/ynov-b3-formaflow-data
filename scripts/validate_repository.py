@@ -125,6 +125,15 @@ def main() -> int:
             "benchmarks/protocols/relational-index.md", "scripts/run_benchmark.py",
             "benchmarks/results/reference-small/result.json",
         ))
+    if args.stage in {"nosql", "final"}:
+        required.extend((
+            "docs/nosql-comparison.md", "docs/adr/0002-nosql-projections-not-sources.md",
+            "nosql/execution-status.md",
+            "nosql/mongodb/README.md", "nosql/mongodb/model.json", "nosql/mongodb/init.js", "nosql/mongodb/queries.js",
+            "nosql/redis/README.md", "nosql/redis/keys.md", "nosql/redis/init.redis",
+            "nosql/cassandra/README.md", "nosql/cassandra/schema.cql", "nosql/cassandra/queries.cql", "nosql/cassandra/prepared-trace.json",
+            "nosql/neo4j/README.md", "nosql/neo4j/init.cypher", "nosql/neo4j/queries.cypher",
+        ))
     for relative in required:
         if not (ROOT / relative).is_file():
             errors.append(f"fichier obligatoire absent: {relative}")

@@ -1,0 +1,13 @@
+{
+  "_id": "TRN-0002",
+  "slug": "modeliser-donnees-metier",
+  "title": "Modéliser des données métier",
+  "status": "PUBLISHED",
+  "summary": "Formation synthétique",
+  "attributes": {"level": "INTERMEDIATE", "deliveryModes": ["ONSITE", "REMOTE"], "language": "fr"},
+  "skills": [{"code": "SKL-001", "label": "Modélisation de données", "targetLevel": 2}],
+  "modules": [{"code": "MOD-01", "title": "Dépendances fonctionnelles", "minutes": 90}],
+  "nextSessionIds": ["SES-2027-0002"],
+  "projectedAt": {"$date": "2027-01-20T12:00:00Z"},
+  "sourceVersion": 1
+}

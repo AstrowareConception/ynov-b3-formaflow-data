@@ -15,6 +15,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 COMPOSE = ["docker", "compose", "--project-directory", str(ROOT), "-f", str(ROOT / "compose.yml")]
+ALL_PROFILES = ["--profile", "mongodb", "--profile", "redis", "--profile", "cassandra", "--profile", "neo4j"]
 EXPECTED_INPUTS = {
     "ynov-b3-formaflow-reference-v1.0.0.zip": "9de0223729f0aa4b99c7d5d2ff260cd25f7540401566bb033b7a383c57b4d921",
     "ynov-b3-cdan-evidence-kit-v1.0.0.zip": "845ff950bf6be288715b6edb0c4a84457c7827bb40caca238a411ba188e6665a",
@@ -100,7 +101,7 @@ def start() -> None:
 
 def stop() -> None:
     ensure_docker_client()
-    run(COMPOSE + ["down", "--remove-orphans"])
+    run(COMPOSE + ALL_PROFILES + ["down", "--remove-orphans"])
 
 
 def psql_file(path: Path) -> None:
@@ -181,7 +182,7 @@ def nosql(profile: str) -> None:
         raise CommandError(f"PROFILE requis parmi : {', '.join(services)}.")
     init_files = {
         "mongodb": ("mongosh", "/workspace/nosql/mongodb/init.js"),
-        "redis": ("redis-cli", "--pipe"),
+        "redis": ("redis-cli",),
         "cassandra": ("cqlsh", "-f", "/workspace/nosql/cassandra/schema.cql"),
         "neo4j": ("cypher-shell", "-f", "/workspace/nosql/neo4j/init.cypher"),
     }
@@ -193,6 +194,8 @@ def nosql(profile: str) -> None:
     }[profile]
     if not init_path.exists():
         raise CommandError(f"Le profil {profile} devient disponible au checkpoint NoSQL.")
+    # Activate every profile for down so previously selected NoSQL services are included.
+    run(COMPOSE + ALL_PROFILES + ["down", "--remove-orphans"])
     run(COMPOSE + ["--profile", profile, "up", "-d", "--wait", services[profile]])
     if profile == "redis":
         payload = init_path.read_text(encoding="utf-8")

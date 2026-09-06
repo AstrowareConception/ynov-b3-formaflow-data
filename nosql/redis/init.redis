@@ -1,0 +1,9 @@
+FLUSHDB
+SET formaflow:v1:session:SES-2027-0001:availability 1 EX 60
+HSET formaflow:v1:basket:BASKET-SYNTH-01 session_id SES-2027-0001 participant_id LRN-0001
+EXPIRE formaflow:v1:basket:BASKET-SYNTH-01 1800
+SET formaflow:v1:idempotency:OP-SYNTH-01 ENR-2027-000001 EX 86400 NX
+TTL formaflow:v1:session:SES-2027-0001:availability
+TTL formaflow:v1:basket:BASKET-SYNTH-01
+TTL formaflow:v1:idempotency:OP-SYNTH-01
+GET formaflow:v1:session:SES-2027-0001:availability

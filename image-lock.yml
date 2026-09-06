@@ -1,22 +1,22 @@
 lock_version: 1
 resolved_on: 2026-09-06
-resolution_environment: Docker CLI 29.7.2; daemon unavailable during initial resolution
+resolution_environment: Docker Desktop 29.7.2 on windows/amd64; images pulled and inspected locally
 images:
   postgres:
     reference: postgres:16.15-bookworm
-    digest: unresolved
+    digest: sha256:bb3e1a57e5407e0a5280b4211980a5e537f4abd234a87014ac979849a78dd825
   mongodb:
     reference: mongo:8.0.29-noble
-    digest: unresolved
+    digest: sha256:021b2d5ae9d253f2cca17491cc8d03aed8df3c840f3252066aa62d3277fc406e
   redis:
     reference: redis:7.4.11-bookworm
-    digest: unresolved
+    digest: sha256:71da9275c5f3fcb97d0fa0c8c5b36cc995327265420f17a04bfd544f458059f7
   cassandra:
     reference: cassandra:5.0.9-bookworm
-    digest: unresolved
+    digest: sha256:7ee3eda0f01d80fa4cf93cefb2b1b993bd356a98b7200827d2af5113475534d1
   neo4j:
     reference: neo4j:5.26.30-community
-    digest: unresolved
+    digest: sha256:037cf5756f0135cbfd66b739b6df7c7c4bb100f9ce11602f6f9538e17e02c74d
 notes:
   - Tags are explicit patch versions published by the official image maintainers.
-  - A digest is recorded only after successful registry resolution; no digest is inferred.
+  - Digests above are the full repository digests returned by `docker image inspect` after successful pulls; none was inferred.
