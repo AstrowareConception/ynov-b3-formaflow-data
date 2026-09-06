@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "modules": [
+    {
+      "repository": "ynov-b3-formaflow-data",
+      "rules": ["SES-001", "SES-002", "SES-003", "SES-005", "ORD-001", "ORD-002", "ENR-001", "ENR-002", "ENR-003", "PRIV-005"],
+      "edgeCases": ["EDGE-001", "EDGE-002", "EDGE-003", "EDGE-004", "EDGE-005", "EDGE-006"],
+      "events": ["TrainingSessionCreated.v1"],
+      "productions": ["MCD", "MLD", "MPD", "dictionnaire", "contraintes", "index", "modèles NoSQL", "benchmark", "ADR de stockage"]
+    },
+    {
+      "repository": "ynov-b3-formaflow-hexagonal",
+      "rules": ["SES-004", "ORD-002", "ORD-006", "ENR-001", "ENR-002", "ENR-004", "ENR-005"],
+      "edgeCases": ["EDGE-001", "EDGE-002", "EDGE-003", "EDGE-004"],
+      "events": ["TrainingSessionCreated.v1", "OrderConfirmed.v1", "EnrollmentCreated.v1"],
+      "productions": ["langage ubiquitaire", "modèle tactique", "context map", "ports", "adapters", "diagrammes", "ADR"]
+    },
+    {
+      "repository": "ynov-b3-formaflow-interop",
+      "rules": ["ORD-001", "INT-001", "INT-002", "INT-003", "INT-004", "PRIV-002"],
+      "edgeCases": ["EDGE-007", "EDGE-008", "EDGE-009", "EDGE-010", "EDGE-011"],
+      "events": ["TrainingSessionCreated.v1", "OrderConfirmed.v1", "EnrollmentCreated.v1"],
+      "productions": ["JSON Schema", "Protobuf", "Avro", "matrice de compatibilité", "benchmark", "ADR", "rapport d'incident"]
+    },
+    {
+      "repository": "ynov-b3-formaflow-agility",
+      "rules": ["ORD-004", "ORD-006", "ENR-001", "ENR-002", "ENR-005", "INT-004"],
+      "edgeCases": ["EDGE-009", "EDGE-010", "EDGE-011", "EDGE-012", "EDGE-013"],
+      "events": ["OrderConfirmed.v1", "EnrollmentCreated.v1"],
+      "productions": ["Product Goal", "story map", "backlog", "critères d'acceptation", "Sprint Goal", "Definition of Done", "workflow", "rétrospective"]
+    },
+    {
+      "repository": "ynov-b3-formaflow-distributed",
+      "rules": ["ORD-004", "ORD-006", "ORD-007", "ENR-002", "ENR-005", "INT-001", "INT-002", "INT-004"],
+      "edgeCases": ["EDGE-009", "EDGE-011", "EDGE-012", "EDGE-013", "EDGE-014", "EDGE-015", "EDGE-016"],
+      "events": ["OrderConfirmed.v1", "EnrollmentCreated.v1"],
+      "productions": ["services NestJS", "OpenAPI", "gRPC", "gateway", "événements", "résilience", "observabilité", "diagrammes UML/C4"]
+    },
+    {
+      "repository": "ynov-b3-formaflow-security-lab",
+      "rules": ["AUTH-001", "AUTH-002", "AUTH-003", "AUTH-004", "PRIV-001", "PRIV-002", "PRIV-003", "PRIV-004", "PRIV-005"],
+      "edgeCases": ["EDGE-017", "EDGE-018", "EDGE-019", "EDGE-020", "EDGE-021"],
+      "events": ["OrderConfirmed.v1", "EnrollmentCreated.v1"],
+      "productions": ["preuves de vulnérabilité", "correctifs", "tests de sécurité", "cartographie RGPD", "registre", "rapport de remédiation"]
+    }
+  ]
+}

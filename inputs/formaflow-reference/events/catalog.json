@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "events": [
+    {
+      "name": "TrainingSessionCreated.v1",
+      "version": 1,
+      "fact": "Une session de formation a été créée avec ses caractéristiques initiales.",
+      "schema": "schemas/events/training-session-created.v1.schema.json",
+      "example": "events/examples/training-session-created.v1.json",
+      "containsPersonalData": false,
+      "producers": ["training-management"],
+      "consumers": ["catalog-projection", "interop-lab"]
+    },
+    {
+      "name": "OrderConfirmed.v1",
+      "version": 1,
+      "fact": "Une commande et ses lignes sont devenues confirmées.",
+      "schema": "schemas/events/order-confirmed.v1.schema.json",
+      "example": "events/examples/order-confirmed.v1.json",
+      "containsPersonalData": true,
+      "personalDataPolicy": "Identifiants opaques uniquement ; aucun nom ni email.",
+      "producers": ["order-management"],
+      "consumers": ["enrollment-management", "billing-projection", "audit-projection"]
+    },
+    {
+      "name": "EnrollmentCreated.v1",
+      "version": 1,
+      "fact": "Une inscription a été créée pour un participant et une session.",
+      "schema": "schemas/events/enrollment-created.v1.schema.json",
+      "example": "events/examples/enrollment-created.v1.json",
+      "containsPersonalData": true,
+      "personalDataPolicy": "Identifiant opaque de participant uniquement ; aucun nom ni email.",
+      "producers": ["enrollment-management"],
+      "consumers": ["notification-management", "session-capacity-projection", "learner-portal-projection"]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "seed": 20260906,
+  "logicalDate": "2027-01-20T12:00:00Z",
+  "profiles": [
+    {"id": "small", "consultations": 10000, "mode": "generated", "usage": "salle"},
+    {"id": "medium", "consultations": 100000, "mode": "generated", "usage": "démonstration"},
+    {"id": "large-trace", "consultations": 1000000, "mode": "prepared-trace", "usage": "discussion sans coût de génération imposé"}
+  ]
+}

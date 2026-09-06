@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://formaflow.invalid/schemas/reference-dataset.schema.json",
+  "title": "FormaFlow synthetic reference dataset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version", "dataPolicy", "generatedAt", "trainings", "trainingSessions",
+    "accounts", "learners", "organizations", "orders", "payments",
+    "enrollments", "invoices", "notifications"
+  ],
+  "properties": {
+    "version": {"const": "1.0.0"},
+    "dataPolicy": {"const": "synthetic_only"},
+    "generatedAt": {"type": "string", "format": "date-time"},
+    "trainings": {"$ref": "#/$defs/identifiedCollection"},
+    "trainingSessions": {"$ref": "#/$defs/identifiedCollection"},
+    "accounts": {"$ref": "#/$defs/identifiedCollection"},
+    "learners": {"$ref": "#/$defs/identifiedCollection"},
+    "organizations": {"$ref": "#/$defs/identifiedCollection"},
+    "orders": {"$ref": "#/$defs/identifiedCollection"},
+    "payments": {"$ref": "#/$defs/identifiedCollection"},
+    "enrollments": {"$ref": "#/$defs/identifiedCollection"},
+    "invoices": {"$ref": "#/$defs/identifiedCollection"},
+    "notifications": {"$ref": "#/$defs/identifiedCollection"}
+  },
+  "$defs": {
+    "identifiedCollection": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {"id": {"type": "string", "minLength": 3}}
+      }
+    }
+  }
+}

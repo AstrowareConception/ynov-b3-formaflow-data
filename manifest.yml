@@ -1,12 +1,30 @@
 repository:
   name: ynov-b3-formaflow-data
-  version: 0.1.0
-  status: specification
+  version: 1.0.0
+  status: course-start
   academic_year: 2026-2027
   module: Conception et architecture des données
   duration_hours: 14
   ffp_hours: 7
   tdp_hours: 7
+
+sessions:
+  - id: session-01
+    duration_minutes: 240
+    ffp_minutes: 135
+    tdp_minutes: 105
+  - id: session-02
+    duration_minutes: 180
+    ffp_minutes: 90
+    tdp_minutes: 90
+  - id: session-03
+    duration_minutes: 240
+    ffp_minutes: 135
+    tdp_minutes: 105
+  - id: session-04
+    duration_minutes: 180
+    ffp_minutes: 60
+    tdp_minutes: 120
 
 reference:
   source_repository: ynov-b3-formaflow-reference
@@ -37,6 +55,8 @@ commands:
   - benchmark
   - nosql
   - quality
+  - package
+  - clean
 
 tags:
   formative:
@@ -45,6 +65,7 @@ tags:
     - checkpoint-nosql
   canonical:
     - reference-final
+    - data-v1.0.0
 
 assessment:
   repository_submission: false
@@ -52,6 +73,8 @@ assessment:
   summative_mode: individual_contextualized_qcm
   duration_minutes: 45
   weight_percent: 100
+  scheduled_session: session-04
+  included_in_tdp: true
 
 handoff:
   target_repository: ynov-b3-formaflow-hexagonal

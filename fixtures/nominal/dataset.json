@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "dataset": "nominal",
+  "seed": 20260906,
+  "logicalDate": "2027-01-20T12:00:00Z",
+  "dataPolicy": "synthetic_only",
+  "boundaryCaseIds": [],
+  "organizations": [
+    {"id": "ORG-0001", "name": "Organisation Démonstration", "billingCode": "SYNTH-ORG-01"}
+  ],
+  "participants": [
+    {"id": "LRN-0001", "displayName": "Participant Alpha", "email": "participant.alpha@example.test", "organizationId": null},
+    {"id": "LRN-0002", "displayName": "Participant Bêta", "email": "participant.beta@example.test", "organizationId": "ORG-0001"},
+    {"id": "LRN-0003", "displayName": "Participant Gamma", "email": "participant.gamma@example.test", "organizationId": "ORG-0001"}
+  ],
+  "trainings": [
+    {"id": "TRN-0001", "title": "Concevoir une API robuste", "status": "PUBLISHED"},
+    {"id": "TRN-0002", "title": "Modéliser des données métier", "status": "PUBLISHED"},
+    {"id": "TRN-0003", "title": "Sécuriser une application web", "status": "ARCHIVED"}
+  ],
+  "tariffs": [
+    {"id": "TAR-0001", "trainingId": "TRN-0001", "amountMinor": 69000, "currency": "EUR", "validFrom": "2027-01-01"},
+    {"id": "TAR-0002", "trainingId": "TRN-0002", "amountMinor": 59000, "currency": "EUR", "validFrom": "2027-01-01"}
+  ],
+  "sessions": [
+    {"id": "SES-2027-0001", "trainingId": "TRN-0001", "startsAt": "2027-02-15T08:45:00Z", "endsAt": "2027-02-16T16:45:00Z", "capacity": 2, "currentTariffId": "TAR-0001", "status": "OPEN"},
+    {"id": "SES-2027-0002", "trainingId": "TRN-0002", "startsAt": "2027-03-08T08:45:00Z", "endsAt": "2027-03-09T16:45:00Z", "capacity": 12, "currentTariffId": "TAR-0002", "status": "SCHEDULED"}
+  ],
+  "orders": [
+    {"id": "ORD-2027-000001", "buyerParticipantId": "LRN-0001", "organizationId": null, "status": "CONFIRMED", "orderedAt": "2027-01-20T10:15:30Z"},
+    {"id": "ORD-2027-000002", "buyerParticipantId": null, "organizationId": "ORG-0001", "status": "CONFIRMED", "orderedAt": "2027-01-20T11:00:00Z"}
+  ],
+  "orderLines": [
+    {"id": "OLN-2027-000001", "orderId": "ORD-2027-000001", "sessionId": "SES-2027-0001", "participantId": "LRN-0001", "acceptedUnitPriceMinor": 69000, "currency": "EUR"},
+    {"id": "OLN-2027-000002", "orderId": "ORD-2027-000002", "sessionId": "SES-2027-0002", "participantId": "LRN-0002", "acceptedUnitPriceMinor": 59000, "currency": "EUR"}
+  ],
+  "enrollments": [
+    {"id": "ENR-2027-000001", "orderLineId": "OLN-2027-000001", "sessionId": "SES-2027-0001", "participantId": "LRN-0001", "status": "CONFIRMED"},
+    {"id": "ENR-2027-000002", "orderLineId": "OLN-2027-000002", "sessionId": "SES-2027-0002", "participantId": "LRN-0002", "status": "CONFIRMED"}
+  ],
+  "invoices": [
+    {"id": "INV-2027-000001", "orderId": "ORD-2027-000001", "totalMinor": 69000, "currency": "EUR", "issuedAt": "2027-01-20T10:16:00Z"},
+    {"id": "INV-2027-000002", "orderId": "ORD-2027-000002", "totalMinor": 59000, "currency": "EUR", "issuedAt": "2027-01-20T11:01:00Z"}
+  ],
+  "payments": [
+    {"id": "PAY-2027-000001", "orderId": "ORD-2027-000001", "status": "ACCEPTED", "amountMinor": 69000, "currency": "EUR", "occurredAt": "2027-01-20T10:15:29Z"},
+    {"id": "PAY-2027-000002", "orderId": "ORD-2027-000002", "status": "ACCEPTED", "amountMinor": 59000, "currency": "EUR", "occurredAt": "2027-01-20T10:59:59Z"}
+  ],
+  "documents": [
+    {"id": "DOC-0001", "participantId": "LRN-0001", "enrollmentId": "ENR-2027-000001", "kind": "CONVOCATION", "storageKey": "synthetic/DOC-0001.pdf"}
+  ],
+  "consultations": [
+    {"id": "CST-0001", "trainingId": "TRN-0001", "profileId": "PRO-0001", "occurredAt": "2027-01-18T09:00:00Z"},
+    {"id": "CST-0002", "trainingId": "TRN-0002", "profileId": null, "occurredAt": "2027-01-18T09:05:00Z"}
+  ],
+  "skills": [
+    {"id": "SKL-001", "label": "Modélisation de données"},
+    {"id": "SKL-002", "label": "Conception API"},
+    {"id": "SKL-003", "label": "Sécurité web"}
+  ],
+  "trainingSkills": [
+    {"trainingId": "TRN-0001", "skillId": "SKL-002", "level": 2},
+    {"trainingId": "TRN-0002", "skillId": "SKL-001", "level": 2}
+  ],
+  "profileSkills": [
+    {"profileId": "PRO-0001", "skillId": "SKL-001", "level": 1}
+  ],
+  "recommendations": [
+    {"id": "REC-0001", "profileId": "PRO-0001", "trainingId": "TRN-0002", "scoreBasis": "skill-gap", "generatedAt": "2027-01-20T12:00:00Z"}
+  ]
+}

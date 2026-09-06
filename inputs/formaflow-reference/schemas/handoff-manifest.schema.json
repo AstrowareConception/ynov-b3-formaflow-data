@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://formaflow.invalid/schemas/handoff-manifest.schema.json",
+  "title": "FormaFlow inter-module handoff manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["handoffId", "sourceRepository", "sourceTag", "targetRepository", "referenceTag", "generatedAt", "status", "contents"],
+  "properties": {
+    "handoffId": {"type": "string", "pattern": "^HANDOFF-[A-Z0-9-]+$"},
+    "sourceRepository": {"type": "string", "pattern": "^ynov-b3-"},
+    "sourceTag": {"type": "string", "minLength": 1},
+    "targetRepository": {"type": "string", "pattern": "^ynov-b3-"},
+    "referenceTag": {"const": "reference-v1.0.0"},
+    "generatedAt": {"type": "string", "format": "date-time"},
+    "status": {"enum": ["draft", "reviewed", "canonical"]},
+    "contents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "kind", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["decision", "diagram", "fixture", "contract", "evidence", "documentation"]},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "knownLimitations": {"type": "array", "items": {"type": "string"}}
+  }
+}

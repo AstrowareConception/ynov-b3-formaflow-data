@@ -1,0 +1,22 @@
+lock_version: 1
+resolved_on: 2026-09-06
+resolution_environment: Docker CLI 29.7.2; daemon unavailable during initial resolution
+images:
+  postgres:
+    reference: postgres:16.15-bookworm
+    digest: unresolved
+  mongodb:
+    reference: mongo:8.0.29-noble
+    digest: unresolved
+  redis:
+    reference: redis:7.4.11-bookworm
+    digest: unresolved
+  cassandra:
+    reference: cassandra:5.0.9-bookworm
+    digest: unresolved
+  neo4j:
+    reference: neo4j:5.26.30-community
+    digest: unresolved
+notes:
+  - Tags are explicit patch versions published by the official image maintainers.
+  - A digest is recorded only after successful registry resolution; no digest is inferred.

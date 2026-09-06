@@ -1,7 +1,7 @@
 # FormaFlow Data — Conception et architecture des données
 
-> Version documentaire : 0.1.0  
-> Statut : spécification initiale, repository non encore implémenté  
+> Version : 1.0.0  
+> Statut : environnement pédagogique exécutable  
 > Module : Conception et architecture des données — Bachelor 3 DEV  
 > Volume : 14 heures — 7 h FFP + 7 h TDP
 
@@ -32,10 +32,10 @@ Trois cas limites traversent le module : session complète, double inscription e
 
 ## Parcours standard
 
-1. **Séance 1 — Modéliser :** besoin, glossaire, hypothèses, MCD, MLD et premier MPD PostgreSQL.
-2. **Séance 2 — Garantir et mesurer :** normalisation, contraintes, index, `EXPLAIN`, benchmark borné et décision de dénormalisation.
-3. **Séance 3 — Comparer :** modèles MongoDB, Redis, Cassandra et Neo4j construits à partir des accès et des garanties.
-4. **Séance 4 — Composer :** source de vérité, synchronisation, architecture polyglotte, gouvernance, trace CDAN et QCM individuel.
+1. **Séance 1 — Modéliser (4 h : 2 h 15 FFP + 1 h 45 TDP) :** besoin, glossaire, hypothèses, MCD, MLD et premier MPD PostgreSQL.
+2. **Séance 2 — Garantir et mesurer (3 h : 1 h 30 FFP + 1 h 30 TDP) :** normalisation, contraintes, index, `EXPLAIN`, benchmark borné et décision de dénormalisation.
+3. **Séance 3 — Comparer (4 h : 2 h 15 FFP + 1 h 45 TDP) :** modèles MongoDB, Redis, Cassandra et Neo4j construits à partir des accès et des garanties.
+4. **Séance 4 — Composer (3 h : 1 h FFP + 2 h TDP) :** source de vérité, synchronisation, architecture polyglotte, gouvernance, trace CDAN et QCM individuel. Le QCM de 45 minutes est inclus dans les 2 h de TDP.
 
 ## Évaluation
 
@@ -91,7 +91,7 @@ ynov-b3-formaflow-data/
     └── data-reference/
 ```
 
-Cette V0.1.0 documente l'arborescence sans fournir encore les fichiers exécutables, les datasets complets ou les solutions.
+Le tag `course-start` contient l'environnement, les corpus et les gabarits sans les solutions canoniques. Les corrections apparaissent progressivement dans les checkpoints formateur afin de préserver le déroulement des quatre séances.
 
 ## Technologies retenues
 
@@ -102,7 +102,7 @@ Cette V0.1.0 documente l'arborescence sans fournir encore les fichiers exécutab
 - profils Docker Compose séparés pour MongoDB, Redis, Cassandra et Neo4j ;
 - scripts SQL et outils locaux simples pour les fixtures et mesures.
 
-Les versions majeures, images et digests seront figés lors de l'implémentation. La réussite ne dépendra jamais du démarrage simultané des quatre moteurs NoSQL.
+Les versions d'images sont figées dans `compose.yml` et consignées dans `image-lock.yml`. Un digest n'est ajouté que lorsqu'il a réellement été résolu. La réussite ne dépend jamais du démarrage simultané des quatre moteurs NoSQL.
 
 ## Commandes contractuelles
 
@@ -114,10 +114,13 @@ Les versions majeures, images et digests seront figés lors de l'implémentation
 | `make reset-data` | Recréer un état de données synthétiques déterministe |
 | `make seed DATASET=nominal` | Charger explicitement un jeu de données |
 | `make smoke` | Vérifier connexion, schéma, données et requêtes essentielles |
+| `make validate` | Contrôler le contrat documentaire et les durées du parcours |
 | `make test` | Exécuter les contrôles SQL et validations documentaires automatisables |
 | `make benchmark` | Lancer le protocole de mesure relationnel borné |
 | `make nosql PROFILE=mongodb` | Démarrer un seul profil NoSQL identifié |
 | `make quality` | Contrôler format, liens, manifests et fichiers attendus |
+| `make package` | Produire l'archive pédagogique déterministe |
+| `make clean` | Supprimer uniquement `build/` et `dist/` |
 
 Chaque commande devra être idempotente ou documenter clairement ses effets destructifs. `make reset-data` ne manipulera que les volumes Docker explicitement nommés par ce projet.
 
@@ -154,6 +157,6 @@ Le module Architecture hexagonale & DDD copie ce paquet dans `inputs/data-refere
 
 Toutes les données sont fictives. Aucun dump réel, secret, compte distant ou service cloud n'est nécessaire. Les scripts de génération doivent être déterministes, documenter leur volumétrie et rester compatibles avec les ressources des postes étudiants.
 
-## État de la version 0.1.0
+## Utilisation locale
 
-Cette version fixe le contrat du repository. Restent à produire lors de la spécification détaillée : `compose.yml`, `Makefile`, datasets, briefs, schéma volontairement fragile, tests SQL, protocoles de benchmark, gabarits de modèles, checkpoints réels, handoff complet et kit formateur.
+Consulter `docs/getting-started.md` puis exécuter `make setup`, `make start`, `make reset-data` et `make smoke`. Les commandes directes `python scripts/manage.py <commande>` restent disponibles sur un poste Windows où GNU Make n'est pas installé.

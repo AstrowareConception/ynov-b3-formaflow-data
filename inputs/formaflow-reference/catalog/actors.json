@@ -1,0 +1,61 @@
+{
+  "version": "1.0.0",
+  "actors": [
+    {
+      "id": "ACT-VISITOR",
+      "label": "Visiteur",
+      "kind": "human",
+      "description": "Consulte le catalogue public et les prochaines sessions sans accéder aux données d'un participant.",
+      "permissions": ["catalog.read", "training-session.read-public"]
+    },
+    {
+      "id": "ACT-INDIVIDUAL-CUSTOMER",
+      "label": "Client individuel",
+      "kind": "human",
+      "description": "Commande une inscription pour lui-même, consulte ses ressources et exerce ses droits sur ses données.",
+      "permissions": ["order.create-self", "order.read-own", "enrollment.read-own", "privacy-request.create-self"]
+    },
+    {
+      "id": "ACT-ORGANIZATION-MANAGER",
+      "label": "Responsable d'organisation",
+      "kind": "human",
+      "description": "Commande pour des collaborateurs autorisés dans le strict périmètre de son organisation.",
+      "permissions": ["order.create-organization", "order.read-organization", "learner.assign-authorized"]
+    },
+    {
+      "id": "ACT-LEARNER",
+      "label": "Participant",
+      "kind": "human",
+      "description": "Personne physique destinée à suivre une session ; elle peut être distincte du client payeur.",
+      "permissions": ["enrollment.read-own", "privacy-request.create-self"]
+    },
+    {
+      "id": "ACT-TRAINING-MANAGER",
+      "label": "Gestionnaire de formation",
+      "kind": "human",
+      "description": "Publie les formations, planifie les sessions et consulte les inscriptions nécessaires à l'organisation.",
+      "permissions": ["training.manage", "training-session.manage", "enrollment.read-operational"]
+    },
+    {
+      "id": "ACT-ADMINISTRATIVE-AGENT",
+      "label": "Agent administratif",
+      "kind": "human",
+      "description": "Traite dossiers, documents, corrections et exports autorisés avec des actions traçables.",
+      "permissions": ["enrollment.manage-authorized", "invoice.read-authorized", "export.create-authorized"]
+    },
+    {
+      "id": "ACT-TECHNICAL-ADMIN",
+      "label": "Administrateur technique",
+      "kind": "human",
+      "description": "Exploite la plateforme sans recevoir par principe un accès métier illimité.",
+      "permissions": ["platform.operate", "technical-log.read-redacted"]
+    },
+    {
+      "id": "ACT-SIMULATED-SERVICES",
+      "label": "Services simulés",
+      "kind": "system",
+      "description": "Simulateurs locaux de paiement, notification et dépendances externes.",
+      "permissions": ["payment.simulate", "notification.simulate", "failure.simulate"]
+    }
+  ]
+}

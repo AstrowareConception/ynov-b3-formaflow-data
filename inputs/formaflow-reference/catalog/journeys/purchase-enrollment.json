@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "id": "purchase-enrollment",
+  "label": "Choisir une session, confirmer une commande, créer l'inscription et notifier",
+  "primaryActor": "ACT-INDIVIDUAL-CUSTOMER",
+  "supportingActors": ["ACT-LEARNER", "ACT-SIMULATED-SERVICES"],
+  "preconditions": [
+    "La formation TRN-0001 existe.",
+    "La session SES-2027-0001 est OPEN et possède une place disponible.",
+    "Le compte ACC-0001 est authentifié et rattaché au participant LRN-0001."
+  ],
+  "steps": [
+    {"position": 1, "action": "Consulter la session ouverte", "rules": ["SES-001", "SES-002", "SES-003"]},
+    {"position": 2, "action": "Créer une commande et une ligne avec photographie du prix", "rules": ["ORD-001", "ORD-002", "ORD-003"]},
+    {"position": 3, "action": "Soumettre la commande au paiement simulé", "rules": ["ORD-005", "ORD-007"]},
+    {"position": 4, "action": "Confirmer la commande après acceptation", "rules": ["ORD-006"], "integrationEvent": "OrderConfirmed.v1"},
+    {"position": 5, "action": "Créer une inscription sans dépasser la capacité", "rules": ["ENR-001", "ENR-002", "ENR-003"], "integrationEvent": "EnrollmentCreated.v1"},
+    {"position": 6, "action": "Préparer puis envoyer une notification", "rules": ["ENR-005"]},
+    {"position": 7, "action": "Conserver les traces minimales", "rules": ["PRIV-002", "PRIV-003", "INT-002"]}
+  ],
+  "successOutcome": "La commande ORD-2027-000001 et l'inscription ENR-2027-000001 sont confirmées ; la notification possède son propre résultat.",
+  "alternativeOutcomes": [
+    {"id": "payment-refused", "description": "Le paiement est refusé, la commande devient PAYMENT_FAILED et aucune inscription n'est créée."},
+    {"id": "payment-unknown", "description": "Le paiement reste UNKNOWN jusqu'à réconciliation ; aucune confirmation prématurée n'est produite."},
+    {"id": "last-seat-race", "description": "Une seule demande obtient la dernière place ; l'autre reçoit un résultat métier explicite."},
+    {"id": "notification-failure", "description": "La notification échoue mais l'inscription confirmée demeure valide."}
+  ]
+}

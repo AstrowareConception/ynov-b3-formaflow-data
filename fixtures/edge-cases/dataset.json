@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "dataset": "edge-cases",
+  "seed": 20260906,
+  "logicalDate": "2027-01-20T12:00:00Z",
+  "dataPolicy": "synthetic_only",
+  "boundaryCaseIds": [
+    "EDGE-CAPACITY-FULL",
+    "EDGE-DUPLICATE-ENROLLMENT",
+    "EDGE-PRICE-HISTORY",
+    "EDGE-ORGANIZATION-FUNDED",
+    "EDGE-PAYMENT-ACCEPTED",
+    "EDGE-PAYMENT-REFUSED",
+    "EDGE-PAYMENT-UNKNOWN",
+    "EDGE-OPTIONAL-ABSENT"
+  ],
+  "cases": [
+    {"id": "EDGE-CAPACITY-FULL", "setup": "SES-EDGE-FULL a une capacité de 1 et une inscription confirmée", "expected": "une seconde inscription consommant une place est refusée"},
+    {"id": "EDGE-DUPLICATE-ENROLLMENT", "setup": "LRN-EDGE-01 est déjà inscrit à SES-EDGE-FULL", "expected": "une nouvelle inscription du même participant à la session est refusée"},
+    {"id": "EDGE-PRICE-HISTORY", "setup": "une ligne accepte 42000 centimes puis le tarif courant passe à 47000", "expected": "la ligne conserve 42000"},
+    {"id": "EDGE-ORGANIZATION-FUNDED", "setup": "ORG-EDGE-01 finance LRN-EDGE-02", "expected": "acheteur et bénéficiaire restent distingués"},
+    {"id": "EDGE-PAYMENT-ACCEPTED", "setup": "paiement déterministe accepté", "expected": "état ACCEPTED observable"},
+    {"id": "EDGE-PAYMENT-REFUSED", "setup": "paiement déterministe refusé", "expected": "état REFUSED observable sans inscription"},
+    {"id": "EDGE-PAYMENT-UNKNOWN", "setup": "timeout du simulateur", "expected": "état UNKNOWN sans confirmation prématurée"},
+    {"id": "EDGE-OPTIONAL-ABSENT", "setup": "participant sans téléphone, consultation anonyme et document sans expiration", "expected": "nullabilité explicite et non ambiguë"}
+  ]
+}

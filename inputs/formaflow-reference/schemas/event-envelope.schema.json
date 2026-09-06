@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://formaflow.example.test/schemas/event-envelope.schema.json",
+  "title": "FormaFlow integration event envelope",
+  "type": "object",
+  "required": ["eventId", "eventType", "version", "occurredAt", "correlationId", "causationId", "producer", "payload"],
+  "properties": {
+    "eventId": {"type": "string", "format": "uuid"},
+    "eventType": {"type": "string", "minLength": 1},
+    "version": {"type": "integer", "minimum": 1},
+    "occurredAt": {"type": "string", "format": "date-time"},
+    "correlationId": {"type": "string", "format": "uuid"},
+    "causationId": {"type": ["string", "null"], "format": "uuid"},
+    "producer": {"type": "string", "pattern": "^[a-z][a-z0-9-]+$"},
+    "payload": {"type": "object"}
+  },
+  "additionalProperties": false
+}

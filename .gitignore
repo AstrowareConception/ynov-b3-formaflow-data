@@ -1,0 +1,37 @@
+# Local source archives and IDE state
+_inputs/
+.idea/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Generated distributions and work products
+dist/
+build/
+*.zip
+*.bundle
+*.log
+
+# Database state
+volumes/
+pgdata/
+mongodb-data/
+cassandra-data/
+neo4j-data/
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# OS and editor temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

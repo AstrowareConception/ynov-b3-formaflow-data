@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "models": [
+    {
+      "id": "STATE-TRAINING-SESSION",
+      "entity": "TrainingSession",
+      "initialState": "DRAFT",
+      "states": ["DRAFT", "SCHEDULED", "OPEN", "FULL", "CANCELLED", "COMPLETED"],
+      "transitions": [
+        {"from": "DRAFT", "to": "SCHEDULED", "label": "planifier"},
+        {"from": "SCHEDULED", "to": "OPEN", "label": "ouvrir les réservations"},
+        {"from": "OPEN", "to": "FULL", "label": "attribuer la dernière place"},
+        {"from": "FULL", "to": "OPEN", "label": "libérer une place"},
+        {"from": "SCHEDULED", "to": "CANCELLED", "label": "annuler"},
+        {"from": "OPEN", "to": "CANCELLED", "label": "annuler"},
+        {"from": "FULL", "to": "CANCELLED", "label": "annuler"},
+        {"from": "OPEN", "to": "COMPLETED", "label": "clôturer"},
+        {"from": "FULL", "to": "COMPLETED", "label": "clôturer"}
+      ]
+    },
+    {
+      "id": "STATE-ORDER",
+      "entity": "Order",
+      "initialState": "DRAFT",
+      "states": ["DRAFT", "AWAITING_PAYMENT", "CONFIRMED", "PAYMENT_FAILED", "CANCELLED"],
+      "transitions": [
+        {"from": "DRAFT", "to": "AWAITING_PAYMENT", "label": "soumettre au paiement"},
+        {"from": "AWAITING_PAYMENT", "to": "CONFIRMED", "label": "accepter le paiement"},
+        {"from": "AWAITING_PAYMENT", "to": "PAYMENT_FAILED", "label": "refuser le paiement"},
+        {"from": "DRAFT", "to": "CANCELLED", "label": "abandonner"},
+        {"from": "AWAITING_PAYMENT", "to": "CANCELLED", "label": "annuler"}
+      ]
+    },
+    {
+      "id": "STATE-PAYMENT",
+      "entity": "Payment",
+      "initialState": "PENDING",
+      "states": ["PENDING", "ACCEPTED", "REFUSED", "UNKNOWN"],
+      "transitions": [
+        {"from": "PENDING", "to": "ACCEPTED", "label": "réponse acceptée"},
+        {"from": "PENDING", "to": "REFUSED", "label": "réponse refusée"},
+        {"from": "PENDING", "to": "UNKNOWN", "label": "réponse incertaine ou timeout"},
+        {"from": "UNKNOWN", "to": "ACCEPTED", "label": "réconciliation positive"},
+        {"from": "UNKNOWN", "to": "REFUSED", "label": "réconciliation négative"}
+      ]
+    },
+    {
+      "id": "STATE-ENROLLMENT",
+      "entity": "Enrollment",
+      "initialState": "PENDING",
+      "states": ["PENDING", "CONFIRMED", "CANCELLED", "COMPLETED"],
+      "transitions": [
+        {"from": "PENDING", "to": "CONFIRMED", "label": "confirmer"},
+        {"from": "PENDING", "to": "CANCELLED", "label": "annuler"},
+        {"from": "CONFIRMED", "to": "CANCELLED", "label": "annuler"},
+        {"from": "CONFIRMED", "to": "COMPLETED", "label": "terminer la session"}
+      ]
+    },
+    {
+      "id": "STATE-NOTIFICATION",
+      "entity": "Notification",
+      "initialState": "PENDING",
+      "states": ["PENDING", "SENT", "FAILED"],
+      "transitions": [
+        {"from": "PENDING", "to": "SENT", "label": "envoyer"},
+        {"from": "PENDING", "to": "FAILED", "label": "échouer"},
+        {"from": "FAILED", "to": "PENDING", "label": "programmer une nouvelle tentative"}
+      ]
+    }
+  ]
+}

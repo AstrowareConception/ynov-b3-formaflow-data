@@ -1,0 +1,24 @@
+{
+  "eventId": "10000000-0000-4000-8000-000000000002",
+  "eventType": "OrderConfirmed.v1",
+  "version": 1,
+  "occurredAt": "2027-01-20T10:15:30Z",
+  "correlationId": "20000000-0000-4000-8000-000000000002",
+  "causationId": "30000000-0000-4000-8000-000000000002",
+  "producer": "order-management",
+  "payload": {
+    "orderId": "ORD-2027-000001",
+    "customerAccountId": "ACC-0001",
+    "organizationId": null,
+    "confirmedAt": "2027-01-20T10:15:30Z",
+    "lines": [
+      {
+        "orderLineId": "OLN-2027-000001",
+        "trainingSessionId": "SES-2027-0001",
+        "learnerId": "LRN-0001",
+        "unitPriceSnapshot": {"amountMinor": 69000, "currency": "EUR"}
+      }
+    ],
+    "total": {"amountMinor": 69000, "currency": "EUR"}
+  }
+}

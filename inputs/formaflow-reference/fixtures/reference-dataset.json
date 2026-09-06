@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-09-06T08:00:00Z",
+  "dataPolicy": "synthetic_only",
+  "trainings": [
+    {"id": "TRN-0001", "title": "Concevoir une API robuste", "status": "PUBLISHED"},
+    {"id": "TRN-0002", "title": "Modéliser des données métier", "status": "PUBLISHED"},
+    {"id": "TRN-0003", "title": "Sécuriser une application web", "status": "ARCHIVED"}
+  ],
+  "trainingSessions": [
+    {"id": "SES-2027-0001", "trainingId": "TRN-0001", "startsAt": "2027-02-15T08:45:00Z", "endsAt": "2027-02-16T16:45:00Z", "capacity": 2, "referencePrice": {"amountMinor": 69000, "currency": "EUR"}, "status": "OPEN"},
+    {"id": "SES-2027-0002", "trainingId": "TRN-0002", "startsAt": "2027-03-08T08:45:00Z", "endsAt": "2027-03-09T16:45:00Z", "capacity": 12, "referencePrice": {"amountMinor": 59000, "currency": "EUR"}, "status": "SCHEDULED"},
+    {"id": "SES-2027-0003", "trainingId": "TRN-0001", "startsAt": "2027-04-05T08:45:00Z", "endsAt": "2027-04-06T16:45:00Z", "capacity": 1, "referencePrice": {"amountMinor": 72000, "currency": "EUR"}, "status": "FULL"},
+    {"id": "SES-2027-0004", "trainingId": "TRN-0003", "startsAt": "2027-05-10T08:45:00Z", "endsAt": "2027-05-11T16:45:00Z", "capacity": 10, "referencePrice": {"amountMinor": 64000, "currency": "EUR"}, "status": "CANCELLED"}
+  ],
+  "accounts": [
+    {"id": "ACC-0001", "email": "alice.martin@example.test", "role": "INDIVIDUAL_CUSTOMER", "learnerId": "LRN-0001"},
+    {"id": "ACC-0002", "email": "responsable@example.test", "role": "ORGANIZATION_MANAGER", "organizationId": "ORG-0001"},
+    {"id": "ACC-0003", "email": "gestionnaire@example.test", "role": "TRAINING_MANAGER"}
+  ],
+  "learners": [
+    {"id": "LRN-0001", "displayName": "Alice Martin", "email": "alice.martin@example.test"},
+    {"id": "LRN-0002", "displayName": "Benoît Robert", "email": "benoit.robert@example.test"},
+    {"id": "LRN-0003", "displayName": "Chloé Bernard", "email": "chloe.bernard@example.test"}
+  ],
+  "organizations": [
+    {"id": "ORG-0001", "name": "Entreprise Démonstration", "authorizedLearnerIds": ["LRN-0002", "LRN-0003"]}
+  ],
+  "orders": [
+    {
+      "id": "ORD-2027-000001",
+      "customerAccountId": "ACC-0001",
+      "organizationId": null,
+      "status": "CONFIRMED",
+      "confirmedAt": "2027-01-20T10:15:30Z",
+      "lines": [
+        {"id": "OLN-2027-000001", "trainingSessionId": "SES-2027-0001", "learnerId": "LRN-0001", "unitPriceSnapshot": {"amountMinor": 69000, "currency": "EUR"}}
+      ],
+      "total": {"amountMinor": 69000, "currency": "EUR"}
+    },
+    {
+      "id": "ORD-2027-000002",
+      "customerAccountId": "ACC-0002",
+      "organizationId": "ORG-0001",
+      "status": "PAYMENT_FAILED",
+      "confirmedAt": null,
+      "lines": [
+        {"id": "OLN-2027-000002", "trainingSessionId": "SES-2027-0002", "learnerId": "LRN-0002", "unitPriceSnapshot": {"amountMinor": 59000, "currency": "EUR"}}
+      ],
+      "total": {"amountMinor": 59000, "currency": "EUR"}
+    },
+    {
+      "id": "ORD-2027-000003",
+      "customerAccountId": "ACC-0002",
+      "organizationId": "ORG-0001",
+      "status": "AWAITING_PAYMENT",
+      "confirmedAt": null,
+      "lines": [
+        {"id": "OLN-2027-000003", "trainingSessionId": "SES-2027-0002", "learnerId": "LRN-0003", "unitPriceSnapshot": {"amountMinor": 59000, "currency": "EUR"}}
+      ],
+      "total": {"amountMinor": 59000, "currency": "EUR"}
+    }
+  ],
+  "payments": [
+    {"id": "PAY-2027-000001", "orderId": "ORD-2027-000001", "status": "ACCEPTED", "amount": {"amountMinor": 69000, "currency": "EUR"}},
+    {"id": "PAY-2027-000002", "orderId": "ORD-2027-000002", "status": "REFUSED", "amount": {"amountMinor": 59000, "currency": "EUR"}},
+    {"id": "PAY-2027-000003", "orderId": "ORD-2027-000003", "status": "UNKNOWN", "amount": {"amountMinor": 59000, "currency": "EUR"}}
+  ],
+  "enrollments": [
+    {"id": "ENR-2027-000001", "orderId": "ORD-2027-000001", "orderLineId": "OLN-2027-000001", "trainingSessionId": "SES-2027-0001", "learnerId": "LRN-0001", "status": "CONFIRMED"}
+  ],
+  "invoices": [
+    {"id": "INV-2027-000001", "orderId": "ORD-2027-000001", "total": {"amountMinor": 69000, "currency": "EUR"}, "issuedAt": "2027-01-20T10:16:00Z"}
+  ],
+  "notifications": [
+    {"id": "NTF-2027-000001", "enrollmentId": "ENR-2027-000001", "channel": "EMAIL_SIMULATED", "status": "SENT"},
+    {"id": "NTF-2027-000002", "enrollmentId": "ENR-2027-000001", "channel": "EMAIL_SIMULATED", "status": "FAILED"}
+  ]
+}

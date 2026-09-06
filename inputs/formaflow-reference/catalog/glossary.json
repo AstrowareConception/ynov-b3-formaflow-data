@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "terms": [
+    {"id": "TERM-TRAINING", "label": "Formation", "technicalLabel": "Training", "definition": "Offre pédagogique décrivant une promesse, des objectifs et un contenu sans porter une date de réalisation."},
+    {"id": "TERM-TRAINING-SESSION", "label": "Session de formation", "technicalLabel": "TrainingSession", "definition": "Occurrence planifiée d'une formation avec dates, capacité, tarif de référence et état."},
+    {"id": "TERM-ACCOUNT", "label": "Compte", "technicalLabel": "Account", "definition": "Moyen d'authentifier une personne et de gérer ses accès ; il ne se confond pas avec le participant."},
+    {"id": "TERM-LEARNER", "label": "Participant", "technicalLabel": "Learner", "definition": "Personne physique destinée à suivre une session."},
+    {"id": "TERM-ORGANIZATION", "label": "Organisation cliente", "technicalLabel": "CustomerOrganization", "definition": "Structure pouvant financer ou administrer des inscriptions pour des participants autorisés."},
+    {"id": "TERM-ORDER", "label": "Commande", "technicalLabel": "Order", "definition": "Engagement commercial regroupant les informations nécessaires à l'achat d'une ou plusieurs inscriptions."},
+    {"id": "TERM-ORDER-LINE", "label": "Ligne de commande", "technicalLabel": "OrderLine", "definition": "Élément d'une commande conservant la session, le bénéficiaire et la photographie du prix convenu."},
+    {"id": "TERM-ENROLLMENT", "label": "Inscription", "technicalLabel": "Enrollment", "definition": "Droit accordé à un participant de suivre une session déterminée avec un cycle de vie propre."},
+    {"id": "TERM-PAYMENT", "label": "Paiement", "technicalLabel": "Payment", "definition": "Tentative ou résultat financier simulé associé à une commande."},
+    {"id": "TERM-INVOICE", "label": "Facture", "technicalLabel": "Invoice", "definition": "Document comptable fictif produit selon les règles du scénario pédagogique."},
+    {"id": "TERM-NOTIFICATION", "label": "Notification", "technicalLabel": "Notification", "definition": "Message préparé pour informer un destinataire d'un fait métier déjà établi."},
+    {"id": "TERM-CAPACITY", "label": "Capacité", "technicalLabel": "Capacity", "definition": "Nombre maximal de places que la session peut accueillir selon la règle retenue."},
+    {"id": "TERM-AVAILABLE-SEAT", "label": "Place disponible", "technicalLabel": "AvailableSeat", "definition": "Résultat calculé à partir de la capacité et des inscriptions consommant effectivement une place."},
+    {"id": "TERM-CONSENT", "label": "Consentement", "technicalLabel": "Consent", "definition": "Manifestation libre, spécifique, éclairée et univoque utilisée seulement lorsqu'elle constitue la base légale appropriée."},
+    {"id": "TERM-DOMAIN-EVENT", "label": "Événement de domaine", "technicalLabel": "DomainEvent", "definition": "Fait significatif exprimé à l'intérieur d'un modèle de domaine."},
+    {"id": "TERM-INTEGRATION-EVENT", "label": "Événement d'intégration", "technicalLabel": "IntegrationEvent", "definition": "Contrat versionné publié pour informer d'autres composants d'un fait déjà décidé."},
+    {"id": "TERM-REFERENCE-STATE", "label": "État canonique", "technicalLabel": "ReferenceState", "definition": "Version consolidée par le formateur et utilisée comme point d'entrée ou de reprise."},
+    {"id": "TERM-EVIDENCE", "label": "Preuve", "technicalLabel": "Evidence", "definition": "Élément reproductible reliant une affirmation à une observation, un test, un résultat ou une décision."}
+  ]
+}

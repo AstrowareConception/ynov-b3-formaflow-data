@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    {"id": "EDGE-001", "category": "data-domain", "title": "Dernière place concurrente", "description": "Deux clients demandent presque simultanément la dernière place d'une session.", "relatedRules": ["ENR-002"]},
+    {"id": "EDGE-002", "category": "data-domain", "title": "Participant déjà inscrit", "description": "Un participant actif est ajouté à la même session par une autre organisation.", "relatedRules": ["ENR-001", "AUTH-003"]},
+    {"id": "EDGE-003", "category": "data-domain", "title": "Tarif modifié", "description": "Le tarif courant change après confirmation de la commande.", "relatedRules": ["ORD-002"]},
+    {"id": "EDGE-004", "category": "data-domain", "title": "Session reportée", "description": "Une session est reportée après émission de documents administratifs.", "relatedRules": ["ENR-004"]},
+    {"id": "EDGE-005", "category": "data-domain", "title": "Formation archivée", "description": "Une formation est archivée alors que ses sessions historiques restent consultables.", "relatedRules": ["SES-005"]},
+    {"id": "EDGE-006", "category": "data-domain", "title": "Compte et organisation", "description": "Une organisation finance un participant possédant déjà un compte individuel.", "relatedRules": ["AUTH-003"]},
+
+    {"id": "EDGE-007", "category": "interoperability", "title": "Champ inconnu", "description": "Un ancien consommateur reçoit un événement avec un champ facultatif inconnu.", "relatedRules": ["INT-003"]},
+    {"id": "EDGE-008", "category": "interoperability", "title": "Rupture silencieuse", "description": "Un producteur omet un champ requis ou change son unité sans nouvelle version.", "relatedRules": ["ORD-001", "INT-003"]},
+    {"id": "EDGE-009", "category": "interoperability", "title": "Message livré deux fois", "description": "Un message est redélivré après le redémarrage du consommateur.", "relatedRules": ["ORD-004", "INT-004"]},
+    {"id": "EDGE-010", "category": "interoperability", "title": "Webhook tardif", "description": "Un webhook arrive après expiration du délai de réponse du système appelant.", "relatedRules": ["ORD-007", "INT-004"]},
+    {"id": "EDGE-011", "category": "interoperability", "title": "Notification indisponible", "description": "Le service de notification est indisponible lors de la confirmation.", "relatedRules": ["ENR-005"]},
+
+    {"id": "EDGE-012", "category": "distributed", "title": "Paiement accepté après timeout", "description": "Le simulateur répond lentement puis accepte après expiration du timeout client.", "relatedRules": ["ORD-004", "ORD-007"]},
+    {"id": "EDGE-013", "category": "distributed", "title": "Retries et effet répété", "description": "Une erreur transitoire déclenche plusieurs tentatives susceptibles de répéter un effet.", "relatedRules": ["ORD-004", "INT-004"]},
+    {"id": "EDGE-014", "category": "distributed", "title": "Message poison", "description": "Un consommateur échoue systématiquement et le message rejoint une file dédiée.", "relatedRules": ["INT-004"]},
+    {"id": "EDGE-015", "category": "distributed", "title": "Instance malsaine", "description": "Une instance dégradée continue momentanément à recevoir du trafic.", "relatedRules": []},
+    {"id": "EDGE-016", "category": "distributed", "title": "Écriture sans publication", "description": "L'écriture métier réussit mais la publication de l'événement échoue.", "relatedRules": ["INT-002"]},
+
+    {"id": "EDGE-017", "category": "security-privacy", "title": "IDOR inscription", "description": "Un utilisateur modifie l'identifiant d'une inscription et tente d'accéder à celle d'un autre compte.", "relatedRules": ["AUTH-001", "AUTH-002", "AUTH-004"]},
+    {"id": "EDGE-018", "category": "security-privacy", "title": "Charge XSS de démonstration", "description": "Une valeur affichée contient une charge XSS inoffensive et strictement locale.", "relatedRules": ["AUTH-004"]},
+    {"id": "EDGE-019", "category": "security-privacy", "title": "Action CSRF", "description": "Une action sensible utilisant un cookie est déclenchée depuis une origine non autorisée.", "relatedRules": ["AUTH-004"]},
+    {"id": "EDGE-020", "category": "security-privacy", "title": "Export excessif", "description": "Un export ou un journal contient davantage de données personnelles que nécessaire.", "relatedRules": ["PRIV-001", "PRIV-002"]},
+    {"id": "EDGE-021", "category": "security-privacy", "title": "Effacement distribué", "description": "Une demande d'effacement concerne aussi une projection, un cache, un message et une sauvegarde.", "relatedRules": ["PRIV-004"]}
+  ]
+}

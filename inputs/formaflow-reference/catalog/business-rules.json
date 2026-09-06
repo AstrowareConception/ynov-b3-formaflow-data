@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {"id": "SES-001", "scope": "session", "statement": "Une session appartient à une seule formation de référence.", "terms": ["TERM-TRAINING", "TERM-TRAINING-SESSION"]},
+    {"id": "SES-002", "scope": "session", "statement": "La date de fin d'une session ne peut pas précéder sa date de début.", "terms": ["TERM-TRAINING-SESSION"]},
+    {"id": "SES-003", "scope": "session", "statement": "La capacité est un entier strictement positif lorsque la session devient réservable.", "terms": ["TERM-TRAINING-SESSION", "TERM-CAPACITY"]},
+    {"id": "SES-004", "scope": "session", "statement": "Une session annulée ne peut plus accepter de nouvelle inscription.", "terms": ["TERM-TRAINING-SESSION", "TERM-ENROLLMENT"]},
+    {"id": "SES-005", "scope": "session", "statement": "L'archivage d'une formation ne supprime pas l'historique de ses sessions.", "terms": ["TERM-TRAINING", "TERM-TRAINING-SESSION"]},
+
+    {"id": "ORD-001", "scope": "order", "statement": "Les montants sont exprimés en unités mineures entières et leur devise est explicite.", "terms": ["TERM-ORDER", "TERM-PAYMENT"]},
+    {"id": "ORD-002", "scope": "order", "statement": "Une ligne confirmée conserve la photographie du prix convenu.", "terms": ["TERM-ORDER-LINE"]},
+    {"id": "ORD-003", "scope": "order", "statement": "Une commande possède un identifiant stable et un cycle de vie explicite.", "terms": ["TERM-ORDER"]},
+    {"id": "ORD-004", "scope": "order", "statement": "Une même demande idempotente ne crée pas plusieurs commandes équivalentes.", "terms": ["TERM-ORDER"]},
+    {"id": "ORD-005", "scope": "order", "statement": "Un paiement réel n'est jamais exécuté dans le dispositif pédagogique.", "terms": ["TERM-PAYMENT"]},
+    {"id": "ORD-006", "scope": "order", "statement": "Dans le parcours nominal, une commande n'est confirmée qu'après acceptation du paiement simulé.", "terms": ["TERM-ORDER", "TERM-PAYMENT"]},
+    {"id": "ORD-007", "scope": "order", "statement": "Un paiement incertain n'est assimilé ni à un refus ni à une acceptation avant réconciliation.", "terms": ["TERM-PAYMENT"]},
+
+    {"id": "ENR-001", "scope": "enrollment", "statement": "Un participant ne possède pas deux inscriptions actives à la même session.", "terms": ["TERM-LEARNER", "TERM-TRAINING-SESSION", "TERM-ENROLLMENT"]},
+    {"id": "ENR-002", "scope": "enrollment", "statement": "Une inscription consommant une place ne peut pas conduire à dépasser la capacité autorisée.", "terms": ["TERM-ENROLLMENT", "TERM-CAPACITY", "TERM-AVAILABLE-SEAT"]},
+    {"id": "ENR-003", "scope": "enrollment", "statement": "Une inscription référence un participant et une session identifiables.", "terms": ["TERM-ENROLLMENT", "TERM-LEARNER", "TERM-TRAINING-SESSION"]},
+    {"id": "ENR-004", "scope": "enrollment", "statement": "Création, confirmation, annulation et remboursement sont des décisions distinctes.", "terms": ["TERM-ENROLLMENT", "TERM-PAYMENT"]},
+    {"id": "ENR-005", "scope": "enrollment", "statement": "L'échec d'une notification n'annule pas une inscription déjà confirmée.", "terms": ["TERM-ENROLLMENT", "TERM-NOTIFICATION"]},
+
+    {"id": "AUTH-001", "scope": "authorization", "statement": "L'authentification seule ne suffit pas à autoriser l'accès à une ressource métier.", "terms": ["TERM-ACCOUNT", "TERM-ORDER", "TERM-ENROLLMENT"]},
+    {"id": "AUTH-002", "scope": "authorization", "statement": "Un client individuel n'accède qu'aux ressources auxquelles il est légitimement rattaché.", "terms": ["TERM-ACCOUNT", "TERM-ORDER", "TERM-ENROLLMENT"]},
+    {"id": "AUTH-003", "scope": "authorization", "statement": "Un responsable d'organisation agit seulement dans le périmètre autorisé de son organisation.", "terms": ["TERM-ORGANIZATION", "TERM-LEARNER"]},
+    {"id": "AUTH-004", "scope": "authorization", "statement": "Les contrôles d'autorisation sont réalisés côté serveur.", "terms": ["TERM-ACCOUNT"]},
+
+    {"id": "PRIV-001", "scope": "privacy", "statement": "Chaque donnée collectée est reliée à une finalité explicite.", "terms": ["TERM-CONSENT"]},
+    {"id": "PRIV-002", "scope": "privacy", "statement": "Événements, journaux et exports transportent seulement les données nécessaires.", "terms": ["TERM-INTEGRATION-EVENT"]},
+    {"id": "PRIV-003", "scope": "privacy", "statement": "Secrets, mots de passe en clair et jetons complets ne sont jamais consignés dans les journaux.", "terms": ["TERM-ACCOUNT"]},
+    {"id": "PRIV-004", "scope": "privacy", "statement": "Une demande d'effacement distingue suppression, anonymisation et conservation justifiée.", "terms": ["TERM-ACCOUNT", "TERM-LEARNER"]},
+    {"id": "PRIV-005", "scope": "privacy", "statement": "Les jeux pédagogiques sont exclusivement synthétiques et réinitialisables.", "terms": ["TERM-EVIDENCE"]},
+
+    {"id": "INT-001", "scope": "integration", "statement": "Un événement d'intégration décrit un fait passé et non une commande cachée.", "terms": ["TERM-INTEGRATION-EVENT"]},
+    {"id": "INT-002", "scope": "integration", "statement": "Chaque événement possède un identifiant, une version, un horodatage UTC et un identifiant de corrélation.", "terms": ["TERM-INTEGRATION-EVENT"]},
+    {"id": "INT-003", "scope": "integration", "statement": "La compatibilité est analysée du point de vue des producteurs et consommateurs identifiés.", "terms": ["TERM-INTEGRATION-EVENT"]},
+    {"id": "INT-004", "scope": "integration", "statement": "Un consommateur traite un doublon sans produire un effet métier incontrôlé.", "terms": ["TERM-INTEGRATION-EVENT"]}
+  ]
+}

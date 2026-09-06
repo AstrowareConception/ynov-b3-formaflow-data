@@ -1,0 +1,55 @@
+reference:
+  name: ynov-b3-formaflow-reference
+  version: 1.0.0
+  status: approved
+  academic_year: 2026-2027
+  language: fr-FR
+  canonical_tag: reference-v1.0.0
+
+domain:
+  name: FormaFlow Marketplace
+  currency: EUR
+  money_representation: integer_minor_units
+  date_time_reference: UTC
+  data_policy: synthetic_only
+
+canonical_journey:
+  id: purchase-enrollment
+  label: Choisir une session, confirmer une commande, créer l'inscription et notifier
+
+canonical_integration_events:
+  - TrainingSessionCreated.v1
+  - OrderConfirmed.v1
+  - EnrollmentCreated.v1
+
+machine_readable_assets:
+  actors: catalog/actors.json
+  glossary: catalog/glossary.json
+  business_rules: catalog/business-rules.json
+  state_models: catalog/state-models.json
+  canonical_journey: catalog/journeys/purchase-enrollment.json
+  traceability: catalog/traceability.json
+  reference_dataset: fixtures/reference-dataset.json
+  edge_cases: fixtures/edge-cases.json
+  event_catalog: events/catalog.json
+
+validation:
+  command: make validate
+  external_services_required: false
+  network_required: false
+  data_policy: synthetic_only
+
+consumers:
+  - ynov-b3-formaflow-data
+  - ynov-b3-formaflow-hexagonal
+  - ynov-b3-formaflow-interop
+  - ynov-b3-formaflow-agility
+  - ynov-b3-formaflow-distributed
+  - ynov-b3-formaflow-security-lab
+  - ynov-b3-cdan-evidence-kit
+
+distribution:
+  mode: copied_snapshot
+  git_submodules: false
+  tag_pattern: reference-vX.Y.Z
+  handoff_template: handoff/template

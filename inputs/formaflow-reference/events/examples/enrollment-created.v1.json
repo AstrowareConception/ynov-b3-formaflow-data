@@ -1,0 +1,17 @@
+{
+  "eventId": "10000000-0000-4000-8000-000000000003",
+  "eventType": "EnrollmentCreated.v1",
+  "version": 1,
+  "occurredAt": "2027-01-20T10:15:31Z",
+  "correlationId": "20000000-0000-4000-8000-000000000002",
+  "causationId": "10000000-0000-4000-8000-000000000002",
+  "producer": "enrollment-management",
+  "payload": {
+    "enrollmentId": "ENR-2027-000001",
+    "orderId": "ORD-2027-000001",
+    "orderLineId": "OLN-2027-000001",
+    "trainingSessionId": "SES-2027-0001",
+    "learnerId": "LRN-0001",
+    "status": "CONFIRMED"
+  }
+}

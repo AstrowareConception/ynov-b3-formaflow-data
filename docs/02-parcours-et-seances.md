@@ -2,6 +2,8 @@
 
 ## Séance 1 — Du besoin au schéma physique
 
+**Durée :** 4 h, dont 2 h 15 FFP et 1 h 45 TDP.
+
 **État de départ :** `course-start`.
 
 **Dossiers mobilisés :** `inputs/formaflow-reference/`, `briefs/session-01/`, `fixtures/nominal/`, `docs/`, `diagrams/` et `sql/schema/`.
@@ -11,6 +13,8 @@
 **Point de contrôle :** les scénarios session complète, double inscription et tarif modifié après achat peuvent être racontés et reliés à des choix explicites.
 
 ## Séance 2 — Normaliser, indexer et mesurer
+
+**Durée :** 3 h, dont 1 h 30 FFP et 1 h 30 TDP.
 
 **État de départ :** branche du binôme ou `checkpoint-relational` en cas de reprise.
 
@@ -22,6 +26,8 @@
 
 ## Séance 3 — Comparer les paradigmes NoSQL
 
+**Durée :** 4 h, dont 2 h 15 FFP et 1 h 45 TDP.
+
 **État de départ :** `checkpoint-relational`.
 
 **Dossiers mobilisés :** `nosql/`, `fixtures/nominal/`, `briefs/session-03/` et `benchmarks/`.
@@ -32,6 +38,8 @@
 
 ## Séance 4 — Architecture polyglotte et validation individuelle
 
+**Durée :** 3 h, dont 1 h FFP et 2 h TDP. Le QCM individuel contextualisé de 45 minutes est inclus dans ces 2 h de TDP.
+
 **État de départ :** `checkpoint-nosql`.
 
 **Dossiers mobilisés :** ensemble des productions, `docs/adr/`, `diagrams/`, `evidence/` et `docs/cdan/`.
@@ -39,4 +47,3 @@
 **Productions formatives :** architecture, ownership pressenti, source de vérité, synchronisation, mappings, risques, contrôles et fiche CDAN.
 
 **Évaluation :** QCM individuel séparé du repository. Après le cours, le formateur construit `reference-final` et `handoff/data-reference/`.
-

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://formaflow.example.test/schemas/events/training-session-created.v1.schema.json",
+  "title": "TrainingSessionCreated.v1",
+  "$defs": {
+    "money": {
+      "type": "object",
+      "required": ["amountMinor", "currency"],
+      "properties": {"amountMinor": {"type": "integer", "minimum": 0}, "currency": {"const": "EUR"}},
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {"$ref": "../event-envelope.schema.json"},
+    {
+      "type": "object",
+      "properties": {
+        "eventType": {"const": "TrainingSessionCreated.v1"},
+        "version": {"const": 1},
+        "payload": {
+          "type": "object",
+          "required": ["trainingSessionId", "trainingId", "startsAt", "endsAt", "capacity", "referencePrice", "status"],
+          "properties": {
+            "trainingSessionId": {"type": "string", "pattern": "^SES-[0-9]{4}-[0-9]{4}$"},
+            "trainingId": {"type": "string", "pattern": "^TRN-[0-9]{4}$"},
+            "startsAt": {"type": "string", "format": "date-time"},
+            "endsAt": {"type": "string", "format": "date-time"},
+            "capacity": {"type": "integer", "minimum": 1},
+            "referencePrice": {"$ref": "#/$defs/money"},
+            "status": {"const": "SCHEDULED"}
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://formaflow.example.test/schemas/events/order-confirmed.v1.schema.json",
+  "title": "OrderConfirmed.v1",
+  "$defs": {
+    "money": {
+      "type": "object",
+      "required": ["amountMinor", "currency"],
+      "properties": {"amountMinor": {"type": "integer", "minimum": 0}, "currency": {"const": "EUR"}},
+      "additionalProperties": false
+    },
+    "line": {
+      "type": "object",
+      "required": ["orderLineId", "trainingSessionId", "learnerId", "unitPriceSnapshot"],
+      "properties": {
+        "orderLineId": {"type": "string", "pattern": "^OLN-[0-9]{4}-[0-9]{6}$"},
+        "trainingSessionId": {"type": "string", "pattern": "^SES-[0-9]{4}-[0-9]{4}$"},
+        "learnerId": {"type": "string", "pattern": "^LRN-[0-9]{4}$"},
+        "unitPriceSnapshot": {"$ref": "#/$defs/money"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {"$ref": "../event-envelope.schema.json"},
+    {
+      "type": "object",
+      "properties": {
+        "eventType": {"const": "OrderConfirmed.v1"},
+        "version": {"const": 1},
+        "payload": {
+          "type": "object",
+          "required": ["orderId", "customerAccountId", "organizationId", "confirmedAt", "lines", "total"],
+          "properties": {
+            "orderId": {"type": "string", "pattern": "^ORD-[0-9]{4}-[0-9]{6}$"},
+            "customerAccountId": {"type": "string", "pattern": "^ACC-[0-9]{4}$"},
+            "organizationId": {"type": ["string", "null"], "pattern": "^ORG-[0-9]{4}$"},
+            "confirmedAt": {"type": "string", "format": "date-time"},
+            "lines": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/line"}},
+            "total": {"$ref": "#/$defs/money"}
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}
