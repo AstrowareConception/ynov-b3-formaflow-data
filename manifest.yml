@@ -1,7 +1,7 @@
 repository:
   name: ynov-b3-formaflow-data
   version: 1.0.0
-  status: checkpoint-nosql
+  status: ready-for-release
   academic_year: 2026-2027
   module: Conception et architecture des données
   duration_hours: 14
@@ -51,6 +51,7 @@ commands:
   - reset-data
   - seed
   - smoke
+  - validate
   - test
   - benchmark
   - nosql
@@ -80,3 +81,15 @@ handoff:
   target_repository: ynov-b3-formaflow-hexagonal
   local_path: handoff/data-reference
   consumer_path: inputs/data-reference
+
+distribution:
+  archive: dist/ynov-b3-formaflow-data-v1.0.0.zip
+  review_bundle: dist/ynov-b3-formaflow-data-v1.0.0-review.bundle
+  deterministic: true
+  single_root_directory: ynov-b3-formaflow-data-v1.0.0
+  excludes:
+    - .git
+    - .idea
+    - _inputs
+    - dist
+    - build

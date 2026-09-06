@@ -1,0 +1,17 @@
+flowchart LR
+    U[Usages FormaFlow] --> PG[(PostgreSQL 16\nsource transactionnelle)]
+    PG -->|outbox versionnée\nat-least-once| RELAY[Relais idempotent]
+    RELAY -->|catalogue < 60 s| M[(MongoDB\nprojection documents)]
+    RELAY -->|invalidation| R[(Redis\ncache TTL)]
+    RELAY -->|compétences < 5 min| N[(Neo4j\nprojection graphe)]
+    TRACE[Trace de consultations\nautorité à définir] -->|événements idempotents| C[(Cassandra\nquery-first + TTL)]
+    PG --> V[Vues SQL et matérialisée]
+    M -. reprojection .-> PG
+    R -. cache miss .-> PG
+    N -. reconstruction .-> PG
+    C -. rejeu .-> TRACE
+    OBS[Retard, erreurs, fraîcheur, évictions, partitions] --- RELAY
+    OBS --- M
+    OBS --- R
+    OBS --- C
+    OBS --- N

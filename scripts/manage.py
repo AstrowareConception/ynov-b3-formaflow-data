@@ -165,6 +165,8 @@ def test() -> None:
     if (ROOT / "sql" / "tests" / "010_integrity.sql").exists():
         psql_file(ROOT / "sql" / "tests" / "010_integrity.sql")
         psql_file(ROOT / "sql" / "tests" / "020_reporting.sql")
+        if (ROOT / "scripts" / "validate_handoff.py").exists():
+            run([sys.executable, str(ROOT / "scripts" / "validate_handoff.py")])
     else:
         smoke()
 

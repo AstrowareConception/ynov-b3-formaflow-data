@@ -87,7 +87,11 @@ def main() -> int:
     if args.dataset in ("all", "benchmark"):
         inventories.extend(benchmark(size, args.seed) for size in SIZES)
     inventory_path = OUTPUT / "inventory.json"
-    inventory_path.write_text(json.dumps({"inventories": inventories}, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    inventory_path.write_text(
+        json.dumps({"inventories": inventories}, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     print(f"Inventaire écrit : {inventory_path.relative_to(ROOT)} ({len(inventories)} entrées)")
     return 0
 

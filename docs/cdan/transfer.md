@@ -1,35 +1,58 @@
 # Transfert vers le projet CDAN
 
-> Gabarit issu de `ynov-b3-cdan-evidence-kit` 0.1.0  
-> Module : Conception et architecture des données
+> Evidence Kit : `1.0.0`
+> Profil : `data` - Conception et architecture des données
+> Identifiant : `<TRF-DATA-SUJET-01>`
+> Projet : `<nom ou hypothèse de projet>`
+> Mise à jour : `<AAAA-MM-JJ>`
+> Statut : `<draft | reviewed | verified | archived>`
 
-## Contexte et besoin
+Cette fiche est formative et non notée. Elle ne crée aucune seconde notation en plus de l'unique QCM du module. Utiliser uniquement des données synthétiques ou explicitement autorisées, sans secret ni information client.
 
-`<Contexte étudié, besoin de données et contraintes principales.>`
+## 1. Contexte
 
-## Décision
+`<Situation, rôle, besoin de données, contraintes et socle fourni.>`
 
-`<Décision de modélisation, stockage, normalisation, dénormalisation ou synchronisation.>`
+## 2. Problème ou hypothèse
 
-## Contribution personnelle
+`<Question précise ; annoncer explicitement ce qui reste une hypothèse.>`
 
-`<Élément personnellement analysé, produit ou vérifié.>`
+## 3. Décision ou conclusion
 
-## Preuves
+`<Choix ou constat borné, critères utilisés et raison.>`
 
-| Preuve | Emplacement | Vérification | Ce qu'elle démontre |
-|---|---|---|---|
-| `<nom>` | `<chemin>` | `<commande ou revue>` | `<affirmation>` |
+## 4. Contribution personnelle
 
-## Limites
+`<Ce que j'ai analysé, produit et vérifié ; distinguer provided, individual et collective.>`
 
-`<Hypothèses, périmètre non couvert ou risque restant.>`
+## 5. Outils et assistants
 
-## Transfert vers mon projet
+`<Nom, usage et vérifications personnelles, ou « Aucun ».>`
 
-`<Application possible ou information encore nécessaire.>`
+## 6. Preuves sélectionnées
 
-## Action suivante
+Productions candidates du profil `data` : besoin et invariants, dictionnaire ciblé, MCD/MLD/MPD, contraintes, décision de stockage, preuve de requête ou de performance.
 
-`<Prochaine action concrète.>`
+| ID | Preuve et type | Emplacement précis | Affirmation | Vérification et résultat observé | Provenance / confidentialité |
+|---|---|---|---|---|---|
+| `<EVID-DATA-01>` | `<nom ; test, diagramme ou mesure>` | `<chemin relatif, ancre ou ligne>` | `<affirmation bornée>` | `<commande ou scénario ; résultat réellement observé>` | `<provided, individual ou collective> / <public, internal ou restricted>` |
 
+## 7. Limites
+
+`<Ce que les preuves ne démontrent pas, périmètre non testé et risque résiduel.>`
+
+## 8. Transfert vers le projet CDAN
+
+`<Comment démontrer que la structure choisie préserve le sens et répond aux usages dans un autre contexte ?>`
+
+## 9. Action suivante
+
+`<Action concrète, information à collecter ou signal de décision.>`
+
+## 10. Auto-contrôle
+
+- [ ] Je peux expliquer chaque élément et reproduire chaque vérification.
+- [ ] J'ai distingué fait, hypothèse, décision et preuve.
+- [ ] Ma contribution est distincte du socle fourni et du travail collectif.
+- [ ] J'ai déclaré les outils et assistants avec mes propres vérifications.
+- [ ] Aucun secret, donnée personnelle réelle, information client, URL privée ou preuve `prohibited` n'apparaît.

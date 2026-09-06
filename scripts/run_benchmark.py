@@ -39,7 +39,7 @@ def measure(label: str, repetitions: int = 5, warmups: int = 1) -> dict[str, obj
         raw = psql(f"EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON) {QUERY}", capture=True)
         plan = json.loads(raw)
         path = OUTPUT / f"{label}-plan-{index}.json"
-        path.write_text(json.dumps(plan, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(plan, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
         plans.append(path.relative_to(ROOT).as_posix())
         times.append(float(plan[0]["Execution Time"]))
     return {
@@ -92,7 +92,7 @@ def main() -> int:
         "inventory": inventory,
     }
     output = OUTPUT / "result.json"
-    output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(f"Benchmark evidence: {output}")
     print(f"Functional result: {before_result}")
     print(f"Median before/after (ms): {before['medianMs']} / {after['medianMs']}")

@@ -1,0 +1,102 @@
+{
+  "afterIndex": {
+    "executionTimesMs": [
+      0.364,
+      0.393,
+      0.419,
+      0.397,
+      0.378
+    ],
+    "medianMs": 0.393,
+    "plans": [
+      "evidence/after-index-plan-1.json",
+      "evidence/after-index-plan-2.json",
+      "evidence/after-index-plan-3.json",
+      "evidence/after-index-plan-4.json",
+      "evidence/after-index-plan-5.json"
+    ],
+    "repetitions": 5,
+    "warmups": 1
+  },
+  "beforeIndex": {
+    "executionTimesMs": [
+      0.813,
+      0.903,
+      0.841,
+      0.795,
+      0.964
+    ],
+    "medianMs": 0.841,
+    "plans": [
+      "evidence/before-index-plan-1.json",
+      "evidence/before-index-plan-2.json",
+      "evidence/before-index-plan-3.json",
+      "evidence/before-index-plan-4.json",
+      "evidence/before-index-plan-5.json"
+    ],
+    "repetitions": 5,
+    "warmups": 1
+  },
+  "dataset": "benchmark-small",
+  "dockerEnvironment": "29.7.2|Docker Desktop|x86_64|24|67263504384",
+  "functionalResult": "TRN-0001|2012",
+  "functionallyEquivalent": true,
+  "generatedAt": "2026-09-06T10:36:36.750195+00:00",
+  "inventory": {
+    "inventories": [
+      {
+        "boundaryCaseIds": [
+          "BENCH-HOT-TRAINING",
+          "BENCH-EMPTY-OPTIONAL"
+        ],
+        "dataset": "benchmark",
+        "file": "build/generated/benchmark-consultations-small.csv",
+        "generated": true,
+        "logicalDate": "2027-01-20T12:00:00Z",
+        "profile": "small",
+        "rows": 10000,
+        "seed": 20260906,
+        "sha256": "5990769002beab832ab90362a022ad7310510b206e9553e037a11a834ae57bcc"
+      },
+      {
+        "boundaryCaseIds": [
+          "BENCH-HOT-TRAINING",
+          "BENCH-EMPTY-OPTIONAL"
+        ],
+        "dataset": "benchmark",
+        "file": "build/generated/benchmark-consultations-medium.csv",
+        "generated": true,
+        "logicalDate": "2027-01-20T12:00:00Z",
+        "profile": "medium",
+        "rows": 100000,
+        "seed": 20260906,
+        "sha256": "7caadd58498deefd4f97580406d2fce4ecb21eaa917b17551a94ca427153c6c3"
+      },
+      {
+        "boundaryCaseIds": [
+          "BENCH-HOT-TRAINING",
+          "BENCH-EMPTY-OPTIONAL"
+        ],
+        "dataset": "benchmark",
+        "generated": false,
+        "logicalDate": "2027-01-20T12:00:00Z",
+        "profile": "large-trace",
+        "representation": "prepared-trace",
+        "rows": 1000000,
+        "seed": 20260906
+      }
+    ]
+  },
+  "limitations": [
+    "local Docker execution, not a production workload",
+    "short run sensitive to cache and host activity",
+    "index write and maintenance costs are not measured",
+    "no universal performance conclusion is claimed"
+  ],
+  "logicalDate": "2027-01-20T12:00:00Z",
+  "postgresVersion": "16.15 (Debian 16.15-1.pgdg12+2)",
+  "protocolVersion": "1.0.0",
+  "query": "SELECT training_id, count(*) FROM analytics.consultation WHERE training_id = 'TRN-0001' AND occurred_at >= '2027-01-01T00:00:00Z' GROUP BY training_id",
+  "rows": 10000,
+  "seed": 20260906
+}

@@ -1,0 +1,6 @@
+source_repository=ynov-b3-formaflow-data
+source_version=1.0.0
+source_tag=reference-final
+semantic_reference_repository=ynov-b3-formaflow-reference
+semantic_reference_version=1.0.0
+semantic_reference_tag=reference-v1.0.0

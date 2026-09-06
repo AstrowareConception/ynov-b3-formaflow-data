@@ -1,0 +1,29 @@
+handoff:
+  name: formaflow-data-reference
+  version: 1.0.0
+  source_repository: ynov-b3-formaflow-data
+  source_tag: reference-final
+  source_release_tag: data-v1.0.0
+  target_repository: ynov-b3-formaflow-hexagonal
+  target_path: inputs/data-reference
+  generated_on: 2026-09-06
+  data_policy: synthetic_only
+  autonomous: true
+  dynamic_dependencies: false
+contents:
+  glossary: glossary.md
+  invariants: invariants.md
+  examples: examples-and-counterexamples.md
+  assumptions: assumptions.md
+  open_questions: open-questions.md
+  data_dictionary: data-dictionary.md
+  mcd: models/mcd.mmd
+  mld: models/mld.mmd
+  executable_mpd: models/mpd.sql
+  decisions: decisions
+  evidence: evidence
+guardrails:
+  defines_aggregates: false
+  defines_value_objects: false
+  defines_bounded_contexts: false
+  defines_ports_or_adapters: false

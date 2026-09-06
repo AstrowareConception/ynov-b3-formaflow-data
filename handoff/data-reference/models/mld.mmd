@@ -1,0 +1,21 @@
+erDiagram
+    ORGANIZATION ||--o{ PARTICIPANT : organization_id
+    TRAINING ||--o{ TARIFF : training_id
+    TRAINING ||--o{ TRAINING_SESSION : training_id
+    TARIFF ||--o{ TRAINING_SESSION : current_tariff_id
+    PARTICIPANT o|--o{ CUSTOMER_ORDER : buyer_participant_id
+    ORGANIZATION o|--o{ CUSTOMER_ORDER : organization_id
+    CUSTOMER_ORDER ||--|{ ORDER_LINE : order_id
+    TRAINING_SESSION ||--o{ ORDER_LINE : session_id
+    PARTICIPANT ||--o{ ORDER_LINE : participant_id
+    ORDER_LINE ||--o| ENROLLMENT : order_line_id_UQ
+    TRAINING_SESSION ||--o{ ENROLLMENT : session_id_UQ_pair
+    PARTICIPANT ||--o{ ENROLLMENT : participant_id_UQ_pair
+    CUSTOMER_ORDER ||--o| INVOICE : order_id_UQ
+    CUSTOMER_ORDER ||--o{ PAYMENT : order_id
+    ENROLLMENT o|--o{ DOCUMENT : enrollment_id
+    TRAINING ||--o{ CONSULTATION : training_id
+    TRAINING ||--o{ TRAINING_SKILL : training_id
+    SKILL ||--o{ TRAINING_SKILL : skill_id
+    SKILL ||--o{ PROFILE_SKILL : skill_id
+    TRAINING ||--o{ RECOMMENDATION : training_id

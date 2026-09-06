@@ -1,5 +1,15 @@
 # Journal des versions
 
+## 1.0.0 - Implémentation pédagogique publiable
+
+- création des quatre états Git et de l'environnement PostgreSQL 16 reproductible ;
+- ajout des fixtures déterministes nominales, limites, fragiles et de benchmark ;
+- publication des MCD, MLD, MPD, contraintes, reporting, tests et mesures contextualisées ;
+- ajout des modèles et profils isolés MongoDB, Redis, Cassandra et Neo4j ;
+- formalisation de l'architecture polyglotte, de la gouvernance et des ADR ;
+- intégration du profil `data` de l'Evidence Kit 1.0.0 et du handoff DDD autonome ;
+- ajout de la validation locale, des tests invalides et du packaging déterministe reconstructible.
+
 ## 0.1.0 — Spécification initiale
 
 - définition du périmètre pédagogique et du fil rouge AstroData Hub ;
