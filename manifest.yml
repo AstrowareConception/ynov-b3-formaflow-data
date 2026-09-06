@@ -10,8 +10,8 @@ repository:
 
 reference:
   source_repository: ynov-b3-formaflow-reference
-  source_version: 0.1.0
-  source_tag: reference-v0.1.0
+  source_version: 1.0.0
+  source_tag: reference-v1.0.0
   local_path: inputs/formaflow-reference
   mode: copied_snapshot
 
