@@ -112,7 +112,20 @@ def main() -> int:
     parser.add_argument("--stage", choices=("course-start", "relational", "nosql", "final"), default="course-start")
     args = parser.parse_args()
     errors: list[str] = []
-    for relative in BASE_REQUIRED:
+    required = list(BASE_REQUIRED)
+    if args.stage in {"relational", "nosql", "final"}:
+        required.extend((
+            "docs/glossary.md", "docs/assumptions.md", "docs/invariants.md",
+            "docs/data-dictionary.md", "docs/normalization.md",
+            "diagrams/mcd.mmd", "diagrams/mld.mmd", "diagrams/mpd.mmd",
+            "sql/schema/000_reset.sql", "sql/schema/020_tables.sql",
+            "sql/constraints/030_capacity_guard.sql", "sql/indexes/040_indexes.sql",
+            "sql/reporting/050_views.sql", "sql/seed/nominal.sql",
+            "sql/tests/010_integrity.sql", "sql/tests/020_reporting.sql",
+            "benchmarks/protocols/relational-index.md", "scripts/run_benchmark.py",
+            "benchmarks/results/reference-small/result.json",
+        ))
+    for relative in required:
         if not (ROOT / relative).is_file():
             errors.append(f"fichier obligatoire absent: {relative}")
     for relative in ("fixtures/nominal/dataset.json", "fixtures/edge-cases/dataset.json"):
@@ -132,7 +145,7 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
-    print(f"VALIDATION OK - stage={args.stage} - {len(BASE_REQUIRED)} contrôles de présence")
+    print(f"VALIDATION OK - stage={args.stage} - {len(required)} contrôles de présence")
     return 0
 
 

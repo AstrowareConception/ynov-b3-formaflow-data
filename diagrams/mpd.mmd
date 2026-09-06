@@ -1,0 +1,26 @@
+flowchart LR
+    subgraph core[PostgreSQL schema core]
+      O[organization] --> P[participant]
+      T[training] --> TF[tariff]
+      T --> S[training_session]
+      TF --> S
+      P --> CO[customer_order]
+      O --> CO
+      CO --> OL[order_line + price snapshot]
+      S --> OL
+      P --> OL
+      OL --> E[enrollment UNIQUE session+participant]
+      S --> E
+      CO --> I[invoice]
+      CO --> PY[payment]
+      E --> D[document]
+      T --> TS[training_skill]
+      SK[skill] --> TS
+    end
+    subgraph analytics[PostgreSQL schema analytics]
+      C[consultation]
+      R[recommendation]
+    end
+    T --> C
+    T --> R
+    C --> MV[reporting.daily_consultations materialized]

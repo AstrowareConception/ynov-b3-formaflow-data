@@ -1,0 +1,21 @@
+erDiagram
+    ORGANISATION o|--o{ PARTICIPANT : rattache_eventuellement
+    FORMATION ||--o{ SESSION : planifie
+    FORMATION ||--o{ TARIF : propose
+    TARIF ||--o{ SESSION : reference_courante
+    PARTICIPANT o|--o{ COMMANDE : achete
+    ORGANISATION o|--o{ COMMANDE : finance
+    COMMANDE ||--|{ LIGNE_COMMANDE : contient
+    PARTICIPANT ||--o{ LIGNE_COMMANDE : beneficie
+    SESSION ||--o{ LIGNE_COMMANDE : est_choisie
+    LIGNE_COMMANDE ||--o| INSCRIPTION : ouvre_droit
+    PARTICIPANT ||--o{ INSCRIPTION : recoit
+    SESSION ||--o{ INSCRIPTION : accueille
+    COMMANDE ||--o| FACTURE : produit
+    COMMANDE ||--o{ PAIEMENT : fait_objet
+    INSCRIPTION o|--o{ DOCUMENT : justifie
+    FORMATION ||--o{ CONSULTATION : est_consultee
+    FORMATION }o--o{ COMPETENCE : vise
+    PROFIL }o--o{ COMPETENCE : possede
+    PROFIL ||--o{ RECOMMANDATION : recoit
+    FORMATION ||--o{ RECOMMANDATION : est_proposee

@@ -1,7 +1,7 @@
 repository:
   name: ynov-b3-formaflow-data
   version: 1.0.0
-  status: course-start
+  status: checkpoint-relational
   academic_year: 2026-2027
   module: Conception et architecture des données
   duration_hours: 14

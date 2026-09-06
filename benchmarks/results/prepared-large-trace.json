@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "profile": "large-trace",
+  "dataset": "benchmark",
+  "seed": 20260906,
+  "logicalDate": "2027-01-20T12:00:00Z",
+  "representedRows": 1000000,
+  "executed": false,
+  "representation": "prepared trace specification",
+  "expectedArtifacts": [
+    "EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON) before index",
+    "EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON) after index",
+    "functional result equality",
+    "environment metadata"
+  ],
+  "timings": null,
+  "reason": "La volumétrie supérieure est représentée sans imposer son coût aux postes de salle. Aucun temps ni plan exécuté n'est inventé.",
+  "limitations": "Cette trace décrit le protocole et le volume, pas une mesure. Toute conclusion nécessite une exécution identifiée."
+}

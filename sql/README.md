@@ -1,6 +1,5 @@
 # Zone SQL
 
-Ce dossier accueillera le schéma PostgreSQL, les contraintes, index, requêtes de reporting et tests d'intégrité.
+Ce dossier contient le schéma PostgreSQL ordonné, les contraintes transactionnelles, les index reliés aux usages, les vues de reporting, les seeds et les tests d'intégrité.
 
-Les scripts devront être rejouables sur une base vide, ordonnés explicitement et compatibles avec `make reset-data`. Les corrections de référence ne seront pas présentes au tag `course-start`.
-
+L'ordre exécuté par `make reset-data` est `schema/000`, `schema/010`, `schema/020`, `constraints/030`, `indexes/040`, `reporting/050`, puis `seed/nominal.sql`. Les corrections de référence sont absentes du tag `course-start` et apparaissent à `checkpoint-relational`.
