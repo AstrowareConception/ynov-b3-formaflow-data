@@ -1,49 +1,23 @@
-# Parcours et séances
+# Parcours pédagogique — quatre TP refondus
 
-## Séance 1 — Du besoin au schéma physique
+Le module comporte quatre séances dont l'enchaînement suit désormais l'ordre **besoin → modèle → garantie → choix → composition**. Les TP sont formatifs et associés aux cours théoriques refondus. Il n'y a **ni chronogramme de micro-exercices, ni correction intégrée aux supports étudiants**.
 
-**Durée :** 4 h, dont 2 h 15 FFP et 1 h 45 TDP.
+| Séance | Apport théorique structurant | TP de consolidation | Point de reprise |
+|---|---|---|---|
+| 1 | Besoin métier, Merise, MCD, MLD, premier MPD | Décrire et modéliser le parcours FormaFlow ; expliciter les cardinalités et trois invariants | `course-start` |
+| 2 | Anomalies, 1NF–3NF approfondies, intégrité, index, mesure, dénormalisation | Reprendre un export fragile, justifier contraintes et index et qualifier un benchmark | branche TP1 ; secours `checkpoint-relational` |
+| 3 | Quatre familles NoSQL, garanties, comparaison par usage | Quatre modèles minimaux et un seul profil approfondi ; matrice incluant PostgreSQL | `checkpoint-relational` |
+| 4 | Sources et copies, outbox, contrats, migrations, exploitation | Architecture justifiée, scénarios de reprise, mapping, ADR, dossier DDD | `checkpoint-nosql` |
 
-**État de départ :** `course-start`.
+## Règles communes aux productions
 
-**Dossiers mobilisés :** `inputs/formaflow-reference/`, `briefs/session-01/`, `fixtures/nominal/`, `docs/`, `diagrams/` et `sql/schema/`.
+- Ne pas modifier le corpus figé `inputs/formaflow-reference/`.
+- Réutiliser les trois cas limites : capacité, doublon d'inscription, prix historique.
+- Séparer **preuve exécutée**, **trace observée** et **hypothèse ou modèle seulement proposé**.
+- Conserver une source éditable pour les schémas et l'architecture, ainsi qu'une trace de décision / contribution.
+- Ne pas publier les corrigés dans les branches étudiantes.
+- Le travail reste possible à partir de diagrammes et traces en cas de poste bloqué.
 
-**Productions :** glossaire, registre d'hypothèses, invariants, MCD, MLD, extrait de MPD et premier script SQL.
+Les étapes exactes, critères et livrables sont présentés dans les Pages Moodle. Voir `briefs/session-01` à `session-04`, ainsi que `docs/pedagogie/TP-2026-2027.md`.
 
-**Point de contrôle :** les scénarios session complète, double inscription et tarif modifié après achat peuvent être racontés et reliés à des choix explicites.
-
-## Séance 2 — Normaliser, indexer et mesurer
-
-**Durée :** 3 h, dont 1 h 30 FFP et 1 h 30 TDP.
-
-**État de départ :** branche du binôme ou `checkpoint-relational` en cas de reprise.
-
-**Dossiers mobilisés :** `fixtures/flawed-schema/`, `fixtures/benchmark/`, `sql/constraints/`, `sql/indexes/`, `sql/reporting/`, `sql/tests/` et `benchmarks/`.
-
-**Productions :** dépendances fonctionnelles, schéma normalisé, contraintes, index, plans d'exécution, protocole, résultats et décision de dénormalisation.
-
-**Point de contrôle :** toute affirmation de performance mentionne le dataset, la requête, le contexte d'exécution et la limite de généralisation.
-
-## Séance 3 — Comparer les paradigmes NoSQL
-
-**Durée :** 4 h, dont 2 h 15 FFP et 1 h 45 TDP.
-
-**État de départ :** `checkpoint-relational`.
-
-**Dossiers mobilisés :** `nosql/`, `fixtures/nominal/`, `briefs/session-03/` et `benchmarks/`.
-
-**Productions :** cartographie des accès, document MongoDB, plan de clés Redis, table Cassandra, graphe Neo4j, matrice pondérée et recommandation.
-
-**Point de contrôle :** chaque modèle expose son chemin d'accès principal, ses duplications, ses garanties et son coût d'exploitation.
-
-## Séance 4 — Architecture polyglotte et validation individuelle
-
-**Durée :** 3 h, dont 1 h FFP et 2 h TDP. Le QCM individuel contextualisé de 45 minutes est inclus dans ces 2 h de TDP.
-
-**État de départ :** `checkpoint-nosql`.
-
-**Dossiers mobilisés :** ensemble des productions, `docs/adr/`, `diagrams/`, `evidence/` et `docs/cdan/`.
-
-**Productions formatives :** architecture, ownership pressenti, source de vérité, synchronisation, mappings, risques, contrôles et fiche CDAN.
-
-**Évaluation :** QCM individuel séparé du repository. Après le cours, le formateur construit `reference-final` et `handoff/data-reference/`.
+Les modalités de notation préexistantes restent décrites séparément dans `docs/09-evaluation.md` ; les TP ne créent pas une nouvelle épreuve.
