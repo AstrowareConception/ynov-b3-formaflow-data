@@ -1,37 +1,29 @@
-# Séance 2 - Normaliser, contraindre et mesurer
+# TP 2 — Normalisation, intégrité et performances (parcours refondu)
 
-**Durée indicative :** 3 h, dont 1 h 30 FFP et 1 h 30 TDP.
-**État de départ :** travail de séance 1 ; reprise possible depuis `checkpoint-relational` uniquement après la phase de recherche prévue.
+## Intention
 
-## Objectifs
+Poursuivre la séance 1 : **diagnostiquer → normaliser → protéger → mesurer → arbitrer**. La normalisation n'est pas un simple découpage mécanique ; elle préserve les faits et le passé contractuel.
 
-Diagnostiquer un schéma redondant, mobiliser 1NF, 2NF et 3NF, présenter BCNF lorsque les déterminants le justifient, choisir contraintes et index à partir des accès, puis mesurer une hypothèse sans conclusion universelle.
+## Point de départ
 
-## Contexte et fichiers fournis
+Branche issue du TP 1. Reprise d'appoint via `checkpoint-relational` seulement quand le formateur l'autorise. Export fragile : `fixtures/flawed-schema/enrollment-export.csv`. Gabarits : `docs/templates/functional-dependencies.md`, `docs/templates/benchmark.md`. Benchmark de référence : `benchmarks/results/reference-small/result.json`.
 
-Le fichier `fixtures/flawed-schema/enrollment-export.csv` mélange plusieurs granularités. Les profils de volume sont dans `fixtures/benchmark/profiles.json`; les gabarits de dépendances et de benchmark sont dans `docs/templates/`.
+## Missions
 
-## Étapes proposées
+1. Repérer granularités mélangées et données absentes ; relever **au moins six dépendances fonctionnelles** motivées par les règles métier.
+2. Illustrer les anomalies de modification, d'insertion et de suppression.
+3. Décomposer progressivement : **1NF, 2NF, 3NF**, clés candidates, dépendances partielles/transitives, **reconstruction sans perte**.
+4. Distinguer une duplication incorrecte d'une **photographie historique justifiée** (prix accepté et devise).
+5. Justifier `NOT NULL`, `CHECK`, `UNIQUE`, FK, et la nécessité d'un **contrôle transactionnel** de la capacité. Les `PENDING` et `CONFIRMED` occupent une place dans ce corpus ; le MPD existant rend `(session_id, participant_id)` unique tous statuts confondus.
+6. Formuler la requête consultations par formation et période, proposer l'index composé, lire `EXPLAIN` et, si possible, exécuter un protocole `EXPLAIN ANALYZE` contrôlé.
+7. Comparer calcul SQL, vue matérialisée et table de synthèse. Nommer source, fraîcheur, réparation et coût avant toute copie.
 
-1. Identifier granularité, clé candidate et dépendances fonctionnelles de l'export.
-2. Démontrer une anomalie d'insertion, de modification et de suppression.
-3. Proposer une décomposition progressive jusqu'à 3NF et discuter BCNF sur un cas justifié.
-4. Associer contraintes et index aux écritures et requêtes attendues.
-5. Écrire un protocole avec dataset, seed, échauffement, répétitions, plans et limites.
-6. Comparer résultats fonctionnels avant toute interprétation du temps.
+## Livrables
 
-## Productions formatives attendues
+Table de dépendances, MLD normalisé argumenté, SQL/tests ou traces qualifiées, requête et index, fiche benchmark (données, chauffe, répétitions, équivalence fonctionnelle, médiane, limites), décision de dénormalisation.
 
-Registre de dépendances, schéma normalisé, SQL, tests positifs et négatifs, requêtes de reporting, plans `EXPLAIN`, fiche benchmark et décision de dénormalisation éventuelle.
+## Exigences de preuve
 
-## Critères de réussite
+La trace 10 000 lignes du dépôt est une mesure historique locale ; **1 million** correspond à une **trace préparée, non une exécution**. Un plan seul ou une baisse de latence isolée ne prouve pas un SLA. Un test séquentiel ne démontre pas nécessairement la concurrence à deux connexions.
 
-La décomposition n'est pas arbitraire ; les trois invariants sont testés ; les écritures autorisées restent possibles ; les résultats de reporting sont cohérents ; aucune assertion ne dépend d'un seuil temporel absolu.
-
-## Erreurs fréquentes
-
-Découper une table sans citer de dépendance, créer un index sans requête cible, tester seulement les refus, prendre un plan unique pour une vérité générale, confondre duplication historique justifiée et redondance accidentelle.
-
-## Questions de synthèse
-
-Quelle dépendance motive chaque relation ? Quel invariant nécessite de la concurrence ou un verrouillage ? Dans quelles conditions une dénormalisation contrôlée serait-elle réexaminée ?
+> La Page Moodle détaille les étapes et les critères. Les corrigés restent hors du dépôt étudiant.

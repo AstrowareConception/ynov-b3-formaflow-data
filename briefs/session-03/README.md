@@ -1,36 +1,31 @@
-# Séance 3 - Comparer quatre paradigmes NoSQL
+# TP 3 — Choisir un paradigme SQL / NoSQL (parcours refondu)
 
-**Durée indicative :** 4 h, dont 2 h 15 FFP et 1 h 45 TDP.
-**État de départ :** tag `checkpoint-relational`. Reprise possible depuis ce tag sur une branche dédiée.
+## Intention
 
-## Objectifs
+Passer de « connaître quatre technologies » à **justifier un moteur par un accès réel**, ses garanties, ses coûts et une solution plus simple à comparer.
 
-Identifier document, clé-valeur, colonnes larges et graphe ; comparer MongoDB, Redis, Cassandra et Neo4j à partir des accès, garanties, volumes, coûts et limites ; ne pas remplacer la source relationnelle sans justification.
+## Point de départ
 
-## Contexte et fichiers fournis
+Tag immuable `checkpoint-relational` sur branche de groupe ou production consolidée autorisée. Consulter `nosql/README.md`, `nosql/execution-status.md` et `docs/templates/comparison-matrix.md`.
 
-Les usages étudiés sont : catalogue aux attributs variables, disponibilité éphémère, consultations query-first et recommandations par compétences. Utiliser `fixtures/nominal/`, `nosql/README.md`, `docs/templates/comparison-matrix.md` et les profils Compose séparés.
+## Missions
 
-## Étapes proposées
+1. Définir les **quatre fiches d'accès** : catalogue variable, disponibilité indicative, consultations par formation/mois, écarts de compétences par profil.
+2. Proposer quatre modèles minimaux avec question, données, clés, requête dominante, duplications, fraîcheur, rétention, panne et stratégie de reconstruction :
+   - **MongoDB** : document de catalogue et imbrication bornée ; comparer avec PostgreSQL JSONB.
+   - **Redis** : convention de clés, type, TTL, cache miss, éviction et source d'autorité.
+   - **Cassandra** : clé de partition `(training_id, bucket_month)` et clustering temporel ; expliquer hotspots et lectures multi-buckets.
+   - **Neo4j** : nœuds Profile/Skill/Training, liens HAS_SKILL/REQUIRES, niveaux portés par les liens et score interprétable.
+3. **Approfondir un seul profil exécutable** si le poste le permet. Pour les autres, l'analyse des modèles suffit ; pas de démarrage des quatre profils simultanément.
+4. Réaliser une **matrice de choix par usage**, en incluant PostgreSQL seul, contraintes éliminatoires et coût total d'exploitation.
+5. Formuler une recommandation réversible : bénéfice, risque, preuve ou hypothèse, condition de réexamen.
 
-1. Écrire pour chaque usage les lectures, écritures, latence, cohérence, volume et rétention attendus.
-2. Proposer document et index MongoDB, convention de clés et TTL Redis, partition/clustering Cassandra, nœuds et relations Neo4j.
-3. Identifier duplication, invalidation, taille, éviction, hot partitions et surinterprétation possibles.
-4. Distinguer ce qui a été exécuté, modélisé ou observé via une trace préparée.
-5. Remplir une matrice pondérée et formuler une recommandation réversible.
+## Livrables
 
-## Productions formatives attendues
+Quatre fiches, quatre modèles, une trace ou un essai réellement qualifié, une matrice multi-usages et une recommandation.
 
-Quatre modèles minimaux, données synthétiques, requêtes cibles, matrice comparative et recommandation argumentée.
+## Garde-fous
 
-## Critères de réussite
+La capacité et l'unicité des inscriptions demeurent décidées en PostgreSQL. Une exécution mono-nœud ne démontre aucune garantie de cluster. La source autoritative des consultations peut rester à **définir**, sans inventer un pipeline. Recommander **zéro moteur supplémentaire** est acceptable.
 
-Chaque modèle part d'un accès ; Redis n'est source de vérité ni des inscriptions ni des paiements ; les garanties et coûts sont explicites ; un seul profil est lancé à la fois ; une technologie peut être écartée.
-
-## Erreurs fréquentes
-
-Comparer seulement la syntaxe, imbriquer sans limite de croissance, oublier TTL et invalidation, partitionner Cassandra par commodité d'écriture, déduire une causalité d'une proximité dans le graphe.
-
-## Questions de synthèse
-
-Quelle panne rend chaque projection obsolète ? Quelle duplication est assumée ? Quel signal ferait abandonner la technologie choisie ?
+> Le détail des questions et les critères sont dans la Page Moodle ; aucune réponse canonique n'est publiée dans cette branche.

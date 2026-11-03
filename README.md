@@ -30,12 +30,18 @@ AstroData Hub est le volet données de FormaFlow Marketplace. Le corpus couvre f
 
 Trois cas limites traversent le module : session complète, double inscription et tarif modifié après achat. Ils obligent à protéger la capacité, l'unicité et l'historique plutôt qu'à dessiner un schéma uniquement nominal.
 
-## Parcours standard
+## Parcours standard — TP refondus en 2026–2027
 
-1. **Séance 1 — Modéliser (4 h : 2 h 15 FFP + 1 h 45 TDP) :** besoin, glossaire, hypothèses, MCD, MLD et premier MPD PostgreSQL.
-2. **Séance 2 — Garantir et mesurer (3 h : 1 h 30 FFP + 1 h 30 TDP) :** normalisation, contraintes, index, `EXPLAIN`, benchmark borné et décision de dénormalisation.
-3. **Séance 3 — Comparer (4 h : 2 h 15 FFP + 1 h 45 TDP) :** modèles MongoDB, Redis, Cassandra et Neo4j construits à partir des accès et des garanties.
-4. **Séance 4 — Composer (3 h : 1 h FFP + 2 h TDP) :** source de vérité, synchronisation, architecture polyglotte, gouvernance, trace CDAN et QCM individuel. Le QCM de 45 minutes est inclus dans les 2 h de TDP.
+Le parcours de 14 heures conserve les **quatre séances**, les jeux de données, les commandes et les checkpoints. Les quatre cours théoriques ont été réorganisés ; leurs TP formatifs sont désormais progressifs et sont distribués en **Pages Moodle** :
+
+1. **TP 1 — Merise et conception :** besoin métier, dictionnaire, cardinalités, MCD → MLD → premier MPD PostgreSQL.
+2. **TP 2 — Normalisation et intégrité :** dépendances et anomalies, contraintes, concurrence, index, EXPLAIN et décision de dénormalisation.
+3. **TP 3 — SQL / NoSQL :** quatre usages, modèles document / clé-valeur / colonnes larges / graphe, approfondissement d'un profil, décision multicritère.
+4. **TP 4 — Composition et transmission :** source de vérité, outbox et reprise, mapping et migration, gouvernance, ADR, relais vers DDD.
+
+**Guides et détails :** [parcours TP refondu](docs/pedagogie/TP-2026-2027.md) et [briefs de séance](briefs/). Chaque TP possède un corrigé HTML **enseignant séparé**, qui ne doit pas être publié dans le repo étudiant.
+
+Les tags `course-start`, `checkpoint-relational`, `checkpoint-nosql` et `reference-final` sont **historiques et immuables** ; une refonte des consignes sur `main` ne les déplace pas. Les Page Moodle contiennent les consignes à jour, même lorsque la branche étudiant repart d'un ancien tag.
 
 ## Évaluation
 

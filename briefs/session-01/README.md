@@ -1,36 +1,33 @@
-# Séance 1 - Du besoin au schéma physique
+# TP 1 — Du besoin au MCD, MLD et MPD (parcours refondu)
 
-**Durée indicative :** 4 h, dont 2 h 15 FFP et 1 h 45 TDP.
-**État de départ :** tag `course-start`. Reprise possible avec `git switch --detach course-start`, puis création d'une branche `work/<team-id>`.
+## Intentions pédagogiques
 
-## Objectifs
+La séance 1 reconstruit les fondamentaux de Merise sans supposer leur maîtrise préalable. Le TP suit le cours : **besoin → règles et dictionnaire → MCD et cardinalités → MLD → premier MPD → épreuve des invariants**. Les consignes détaillées, destinées aux étudiants, sont distribuées par une **Page Moodle** distincte.
 
-À partir du snapshot FormaFlow, délimiter le besoin AstroData Hub, produire un glossaire ciblé, expliciter hypothèses et invariants, puis proposer un MCD, un MLD et un premier MPD PostgreSQL. Distinguer modèle de données, modèle de domaine, base physique, ownership supposé et bounded context.
+## État de départ
 
-## Contexte et fichiers fournis
+- Créer une branche `work/<equipe>` depuis le tag immuable `course-start`. Ne pas écraser une branche existante.
+- Référentiel : `inputs/formaflow-reference/docs/02-acteurs-et-parcours.md`, `03-glossaire.md`, `04-regles-metier-et-invariants.md`, `05-cas-limites.md`.
+- Jeux : `fixtures/nominal/dataset.json`, `fixtures/edge-cases/dataset.json`.
+- Ne pas utiliser les dossiers canoniques d'un état plus avancé comme corrigé pendant la recherche.
 
-Le parcours relie formations, sessions, participants, organisations, commandes, inscriptions, tarifs, factures, paiements et documents. Consulter `inputs/formaflow-reference/`, `fixtures/nominal/dataset.json`, `fixtures/edge-cases/dataset.json`, `docs/templates/` et `sql/course-start/`.
+## Missions
 
-## Étapes proposées
+1. Raconter le parcours d'une organisation qui finance l'inscription d'un bénéficiaire ; séparer formation, session, client, commande, ligne, paiement et inscription.
+2. Définir au moins dix données métier, leurs unités, leurs absences permises et six règles de gestion vérifiables.
+3. Dessiner le MCD du noyau, **lire chaque association dans les deux sens**, justifier minimum et maximum ; représenter une formation sans session et une commande sans inscription.
+4. Traduire les liens en MLD, identifier PK, FK et unicités métier ; inclure le lien N,N Formation–Compétence avec `target_level`.
+5. Produire dans un schéma de travail isolé un extrait de MPD PostgreSQL montrant PK/FK, `NOT NULL` et `CHECK`.
+6. Examiner dernière place, doublon de participant et changement du prix après commande.
 
-1. Raconter le parcours nominal et les trois invariants transversaux sans parler de tables.
-2. Construire le glossaire et le registre d'hypothèses ; signaler les termes encore ambigus.
-3. Dessiner les concepts et cardinalités du MCD, puis traduire en relations dans le MLD.
-4. Choisir clés, types et nullabilité dans un extrait de MPD ; relier chaque contrainte à un scénario.
-5. Confronter le modèle à une session complète, un doublon et une évolution tarifaire.
+## Productions
 
-## Productions formatives attendues
+`docs/glossary.md`, `docs/data-dictionary.md`, `docs/assumptions.md`, `docs/invariants.md`, sources éditables MCD/MLD, extrait SQL du MPD et tableau « règle → mécanisme → preuve ».
 
-Glossaire, hypothèses, invariants, sources textuelles MCD/MLD, premier MPD et liste des questions ouvertes. Utiliser les gabarits sans consulter de correction canonique.
+## Critères
 
-## Critères de réussite
+Le dessin exprime le **métier**, non les tables. L'acheteur est distinct du bénéficiaire, le prix accepté reste historique, la PK technique ne remplace pas l'unicité métier. Les garanties de concurrence non encore implémentées sont **signalées** plutôt qu'inventées.
 
-Chaque terme a un sens stable ; les cardinalités couvrent acheteur et bénéficiaire ; le prix historique est représentable ; les trois invariants ont exemple et contre-exemple ; les hypothèses d'ownership ne sont pas présentées comme des faits DDD.
+**En cas de poste bloqué :** fournir les modèles et une analyse des tests, en distinguant explicitement prévu, observé sur trace et exécuté.
 
-## Erreurs fréquentes
-
-Confondre formation et session, compte et participant, paiement et commande ; transformer chaque table en entité DDD ; conserver seulement le tarif courant ; employer `NULL` sans sémantique explicite.
-
-## Questions de synthèse
-
-Quelle règle relève du schéma, d'une transaction ou d'une décision applicative ? Quelle information décrit un fait historique ? Quel choix resterait à arbitrer dans le cours DDD ?
+> Les solutions de référence et corrigés Moodle sont réservés au formateur et ne doivent pas être ajoutés à la branche étudiante.
