@@ -36,7 +36,3 @@ Le dessin exprime le **métier**, non les tables. L'acheteur est distinct du bé
 ## Remise Moodle
 
 Un fichier `FormaFlow_TP1_Groupe-XX.zip` par groupe : modèles éditables et exports lisibles, documents métier, script SQL, `README.md` indiquant membres, contributions et degré de preuve. Aucun lien de commit n'est demandé.
-
-## Remise Moodle
-
-Un fichier `FormaFlow_TP1_Groupe-XX.zip` par groupe, contenant les documents métier, MCD/MLD modifiables et exportés, extrait SQL et `README.md` (membres, contributions, niveau réel des preuves). Aucun lien de commit n'est demandé.
