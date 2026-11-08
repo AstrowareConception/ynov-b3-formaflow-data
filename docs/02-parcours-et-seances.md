@@ -15,7 +15,7 @@ Le module comporte quatre séances dont l'enchaînement suit désormais l'ordre 
 - Réutiliser les trois cas limites : capacité, doublon d'inscription, prix historique.
 - Séparer **preuve exécutée**, **trace observée** et **hypothèse ou modèle seulement proposé**.
 - Conserver une source éditable pour les schémas et l'architecture, ainsi qu'une trace de décision / contribution. Dépôt des productions en ZIP sur Moodle, sans push vers GitHub.
-- Ne pas publier les corrigés dans les branches étudiantes.
+- Ne pas inclure les corrigés dans les archives ZIP déposées par les étudiants.
 - Le travail reste possible à partir de diagrammes et traces en cas de poste bloqué.
 
 Les étapes exactes, critères et livrables sont présentés dans les Pages Moodle. Voir `briefs/session-01` à `session-04`, ainsi que `docs/pedagogie/TP-2026-2027.md`.
