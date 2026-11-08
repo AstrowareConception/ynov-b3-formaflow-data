@@ -6,7 +6,7 @@ Passer de « connaître quatre technologies » à **justifier un moteur par un a
 
 ## Point de départ
 
-Tag immuable `checkpoint-relational` sur branche de groupe ou production consolidée autorisée. Consulter `nosql/README.md`, `nosql/execution-status.md` et `docs/templates/comparison-matrix.md`.
+Tag immuable `checkpoint-relational` téléchargé sur le poste ou production consolidée autorisée. Consulter `nosql/README.md`, `nosql/execution-status.md` et `docs/templates/comparison-matrix.md`.
 
 ## Missions
 
@@ -28,4 +28,8 @@ Quatre fiches, quatre modèles, une trace ou un essai réellement qualifié, une
 
 La capacité et l'unicité des inscriptions demeurent décidées en PostgreSQL. Une exécution mono-nœud ne démontre aucune garantie de cluster. La source autoritative des consultations peut rester à **définir**, sans inventer un pipeline. Recommander **zéro moteur supplémentaire** est acceptable.
 
-> Le détail des questions et les critères sont dans la Page Moodle ; aucune réponse canonique n'est publiée dans cette branche.
+> Le détail des questions et les critères sont dans la Page Moodle ; aucune réponse canonique n'est publiée dans le rendu étudiant.
+
+## Remise
+
+Rendu ZIP sur Moodle ; aucun envoi vers GitHub.

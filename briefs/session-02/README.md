@@ -6,7 +6,7 @@ Poursuivre la séance 1 : **diagnostiquer → normaliser → protéger → mesur
 
 ## Point de départ
 
-Branche issue du TP 1. Reprise d'appoint via `checkpoint-relational` seulement quand le formateur l'autorise. Export fragile : `fixtures/flawed-schema/enrollment-export.csv`. Gabarits : `docs/templates/functional-dependencies.md`, `docs/templates/benchmark.md`. Benchmark de référence : `benchmarks/results/reference-small/result.json`.
+Productions du TP 1 enregistrées dans un dossier local. Reprise d'appoint via `checkpoint-relational` seulement quand le formateur l'autorise. Export fragile : `fixtures/flawed-schema/enrollment-export.csv`. Gabarits : `docs/templates/functional-dependencies.md`, `docs/templates/benchmark.md`. Benchmark de référence : `benchmarks/results/reference-small/result.json`.
 
 ## Missions
 
@@ -27,3 +27,7 @@ Table de dépendances, MLD normalisé argumenté, SQL/tests ou traces qualifiée
 La trace 10 000 lignes du dépôt est une mesure historique locale ; **1 million** correspond à une **trace préparée, non une exécution**. Un plan seul ou une baisse de latence isolée ne prouve pas un SLA. Un test séquentiel ne démontre pas nécessairement la concurrence à deux connexions.
 
 > La Page Moodle détaille les étapes et les critères. Les corrigés restent hors du dépôt étudiant.
+
+## Remise
+
+Rendu ZIP sur Moodle ; aucun envoi vers GitHub.
