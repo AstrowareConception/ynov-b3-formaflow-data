@@ -6,7 +6,8 @@ La séance 1 reconstruit les fondamentaux de Merise sans supposer leur maîtrise
 
 ## État de départ
 
-- Créer une branche `work/<equipe>` depuis le tag immuable `course-start`. Ne pas écraser une branche existante.
+- Télécharger le tag immuable `course-start` sur son ordinateur : https://github.com/AstrowareConception/ynov-b3-formaflow-data/archive/refs/tags/course-start.zip . Le dépôt sert uniquement de documentation et de point de départ : **aucun fork, branche, commit ni push n'est demandé**.
+- Créer sur son poste un dossier `FormaFlow_TP1_Groupe-XX/` séparé du corpus, puis remettre les productions sous la forme d'un ZIP dans Moodle.
 - Référentiel : `inputs/formaflow-reference/docs/02-acteurs-et-parcours.md`, `03-glossaire.md`, `04-regles-metier-et-invariants.md`, `05-cas-limites.md`.
 - Jeux : `fixtures/nominal/dataset.json`, `fixtures/edge-cases/dataset.json`.
 - Ne pas utiliser les dossiers canoniques d'un état plus avancé comme corrigé pendant la recherche.
@@ -30,4 +31,8 @@ Le dessin exprime le **métier**, non les tables. L'acheteur est distinct du bé
 
 **En cas de poste bloqué :** fournir les modèles et une analyse des tests, en distinguant explicitement prévu, observé sur trace et exécuté.
 
-> Les solutions de référence et corrigés Moodle sont réservés au formateur et ne doivent pas être ajoutés à la branche étudiante.
+> Les solutions de référence et corrigés Moodle sont réservés au formateur et ne doivent pas être ajoutés au rendu des étudiants.
+
+## Remise Moodle
+
+Un fichier `FormaFlow_TP1_Groupe-XX.zip` par groupe : modèles éditables et exports lisibles, documents métier, script SQL, `README.md` indiquant membres, contributions et degré de preuve. Aucun lien de commit n'est demandé.

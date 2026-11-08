@@ -41,7 +41,7 @@ Le parcours de 14 heures conserve les **quatre séances**, les jeux de données,
 
 **Guides et détails :** [parcours TP refondu](docs/pedagogie/TP-2026-2027.md) et [briefs de séance](briefs/). Chaque TP possède un corrigé HTML **enseignant séparé**, qui ne doit pas être publié dans le repo étudiant.
 
-Les tags `course-start`, `checkpoint-relational`, `checkpoint-nosql` et `reference-final` sont **historiques et immuables** ; une refonte des consignes sur `main` ne les déplace pas. Les Page Moodle contiennent les consignes à jour, même lorsque la branche étudiant repart d'un ancien tag.
+Les tags `course-start`, `checkpoint-relational`, `checkpoint-nosql` et `reference-final` sont **historiques et immuables** ; une refonte des consignes sur `main` ne les déplace pas. Les Page Moodle contiennent les consignes à jour, même lorsque le travail local repart d'un ancien tag. **Les étudiants remettent leurs productions au format ZIP sur Moodle, sans push vers le dépôt de l'enseignant.**
 
 ## Évaluation
 
@@ -130,9 +130,9 @@ Les versions d'images sont figées dans `compose.yml` et consignées dans `image
 
 Chaque commande devra être idempotente ou documenter clairement ses effets destructifs. `make reset-data` ne manipulera que les volumes Docker explicitement nommés par ce projet.
 
-## Branches, tags et reprise
+## Travail local, tags et reprise
 
-- branche étudiante : `work/<team-id>` ;
+- travail étudiant : dossier local `FormaFlow_TP<n>_Groupe-XX/`, sans branche distante ni push ; remise du ZIP dans Moodle ;
 - tag formateur initial : `course-start` ;
 - reprise après le relationnel : `checkpoint-relational` ;
 - reprise après la comparaison NoSQL : `checkpoint-nosql` ;
@@ -157,7 +157,7 @@ Après le module, le formateur publie `handoff/data-reference/` au tag `referenc
 - hypothèses d'ownership explicitement présentées comme telles ;
 - limites et questions ouvertes.
 
-Le module Architecture hexagonale & DDD copie ce paquet dans `inputs/data-reference/`. Il ne récupère jamais une branche étudiante.
+Le module Architecture hexagonale & DDD copie ce paquet dans `inputs/data-reference/`. Il ne récupère jamais un dossier étudiant.
 
 ## Sécurité et données
 

@@ -26,3 +26,7 @@ Diagramme éditable, matrice source/copie/fraîcheur/réparation, scénario de s
 Une table n'est pas un agrégat DDD ; un stockage n'est pas un bounded context. L'événement `order.confirmed` représente un fait, non une commande cachée. Un événement dupliqué ou une notification en échec ne doit pas modifier la décision métier déjà validée. Plusieurs moteurs ne sont **jamais** obligatoires.
 
 > Les corrigés et toute épreuve sommative restent dans un espace enseignant distinct.
+
+## Remise
+
+Rendu ZIP sur Moodle depuis les fichiers du dossier local ; aucun envoi vers GitHub.
